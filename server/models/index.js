@@ -15,6 +15,7 @@ if (config.use_env_variable){
     sequelize = new Sequelize(config.database, config.username, config.password, config)
 }
 
+//Can comment out
 try {
     sequelize.authenticate()
     console.log(`Connected with Sequelize at ${process.env.DB_DATABASE}`)
