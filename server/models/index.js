@@ -15,6 +15,13 @@ if (config.use_env_variable){
     sequelize = new Sequelize(config.database, config.username, config.password, config)
 }
 
+try {
+    sequelize.authenticate()
+    console.log(`Connected with Sequelize at ${process.env.DB_DATABASE}`)
+} catch (err){
+    console.log(`Unable to connect to PG: ${err}`)
+}
+
 fs
   .readdirSync(__dirname)
   .filter(file => {
