@@ -27,7 +27,6 @@ function App() {
           <Route exact path="/" component={Home}/>
           <Route exact path="/registration" component={Registration}/>
           <Route exact path="/login" component={Login}/>
-
         </Routes>
         <Footer />
       </BrowserRouter>
