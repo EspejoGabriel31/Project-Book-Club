@@ -1,35 +1,45 @@
-'use strict'
+'use strict';
 const {
-    Model                   //import Model Superclass from sequelize
-} = require('sequelize')
-
-module.exports = (sequelize, DataTypes) => {        //start and export User Model
-    
-    class User extends Model {                      //Create User Class from Sequelize Model
-        // static associate({ Post }){
-
-        //     //user's posts                       //Associations to be added later
-        //     User.hasMany(Post, { 
-        //         as: 'author', 
-        //         foreignKey: 'author_id'
-        //     })
-        // }
+  Model
+} = require('sequelize');
+module.exports = (sequelize, DataTypes) => {
+  class User extends Model {
+    /**
+     * Helper method for defining associations.
+     * This method is not a part of Sequelize lifecycle.
+     * The `models/index` file will call this method automatically.
+     */
+    static associate(models) {
+      // define association here
     }
-
-    User.init({                                     //Set User Model's attributes
-        userId: {                                   //User Id automatically generated and set as Primary Key
-            type: DataTypes.SMALLINT,
-            primaryKey: true,
-            autoIncrement: true
-        },
-        firstName: DataTypes.STRING,                //User's first name
-        lastName: DataTypes.STRING,                 //User's last name
-        email: DataTypes.STRING,                    //User's email
-        passwordDigest: DataTypes.STRING            //Digest for User's password
-    }, {
-        sequelize,
-        underscored: true,
-        modelName: 'User'
-    })
-    return User
-}
+  }
+  User.init({
+    user_id: {
+        type: DataTypes.INTEGER,
+        primaryKey: true,
+        autoIncrement: true
+    },
+    first_name: {
+        type: DataTypes.STRING,
+        allowNull: false
+    },
+    last_name: {
+        type: DataTypes.STRING,
+        allowNull: false
+    },
+    email: {
+        type: DataTypes.STRING,
+        allowNull: false
+    },
+    password_digest: {
+        type: DataTypes.STRING,
+        allowNull: false
+    }
+  }, {
+    sequelize,
+    modelName: 'User',
+    tableName: 'users',
+    timestamps: false
+  });
+  return User;
+};
