@@ -1,7 +1,19 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect, useContext} from 'react'
 import './Navbar.css'
+import {useNavigate} from "react-router"
+import { CurrentUser } from '../contexts/CurrentUser';
+
 
 const Navbar = () => {
+
+    const history = useNavigate()
+
+    const { currentUser } = useContext(CurrentUser)
+
+    // if (currentUser){
+
+    // }
+
     return (
         <div className= 'navbar'>
         <div className= "container">
