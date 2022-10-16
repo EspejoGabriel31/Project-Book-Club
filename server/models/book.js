@@ -4,12 +4,8 @@ const {
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
   class Book extends Model {
-    /**
-     * Helper method for defining associations.
-     * This method is not a part of Sequelize lifecycle.
-     * The `models/index` file will call this method automatically.
-     */
      static associate({ Post }){                     
+      
       //Book is associated with the Post Model...
       Book.hasMany(Post, {foreignKey: 'book_id', as: 'posts'})        //...in a One-to-Many relationship
   }
