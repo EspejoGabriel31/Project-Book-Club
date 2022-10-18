@@ -5,11 +5,11 @@ import { useNavigate, useParams } from "react-router"
 
 export default function Registration() {
 
-    const history = useNavigate()
+    const navigate = useNavigate()
 
     const [user, setUser] = useState({
-        firstName: '',
-        lastName: '',
+        first_name: '',
+        last_name: '',
         email: '',
         password: ''
     })
@@ -17,36 +17,36 @@ export default function Registration() {
     async function handleSubmit(e) {
         e.preventDefault()
 
-        await fetch(`http://localhost:5000/users/`, {
+        await fetch(`http://localhost:7000/users/`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(user)
         })
-        history.push(`/`)
+        navigate(`/`)
     }
     return (
         <div clasName="regisContainer">
         <h1>Sign Up</h1>
         <Form onSubmit={handleSubmit}>
-            <Form.Group className="mb-3" controlId="firstName">
+            <Form.Group className="mb-3" controlId="first_name">
                 <Form.Label>First name</Form.Label>
                 <Form.Control 
                     type="first-name" 
                     placeholder="First name" 
-                    value={(user.firstName)}
-                    onChange={e => setUser({...user, firstName: e.target.value})}/>
+                    value={(user.first_name)}
+                    onChange={e => setUser({...user, first_name: e.target.value})}/>
                 <Form.Text className="text-muted">
                 </Form.Text>
             </Form.Group>
-            <Form.Group className="mb-3" controlId="lastName">
+            <Form.Group className="mb-3" controlId="last_name">
                 <Form.Label>Last name</Form.Label>
                 <Form.Control 
                     type="last-name" 
                     placeholder="Last name" 
-                    value={(user.lastName)}
-                    onChange={e => setUser({...user, lastName: e.target.value})}/>
+                    value={(user.last_name)}
+                    onChange={e => setUser({...user, last_name: e.target.value})}/>
                 <Form.Text className="text-muted">
                 </Form.Text>
             </Form.Group>
