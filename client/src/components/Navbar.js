@@ -1,4 +1,5 @@
 import React, {useState, useEffect, useContext} from 'react'
+import styles from './Navbar.css'
 import './Navbar.css'
 import {useNavigate} from "react-router"
 import { CurrentUser } from '../contexts/CurrentUser';
@@ -29,7 +30,7 @@ const Navbar = () => {
                     <a href="/">Genres</a>
                 </li>
                 <li className="nav-item">
-                    <a href="/">About</a>
+                    <a href="/">Login</a>
                 </li>
                 
 
