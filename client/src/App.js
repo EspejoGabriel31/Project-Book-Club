@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react';
 import {BrowserRouter, Route, Routes} from 'react-router-dom'
 import Navbar from './components/Navbar.js';
 import Footer from './components/Footer.js'
+import Hero from './components/Hero.js'
+import Dashboard from './components/Dashboard'
 import './App.css';
 import Home from './Home.js';
 
@@ -23,6 +25,8 @@ function App() {
     <CurrentUserProvider>
       <BrowserRouter>
         <Navbar />
+        <Hero />
+        <Dashboard />
         <Routes>
           <Route exact path="/" component={Home}/>
           <Route exact path="/registration" component={Registration}/>
