@@ -1,12 +1,11 @@
 import { useState, useEffect } from 'react';
 import {BrowserRouter, Route, Routes} from 'react-router-dom'
+import './App.css';
+import Home from './Home.js';
 import Navbar from './components/Navbar.js';
 import Footer from './components/Footer.js'
 import Hero from './components/Hero.js'
 import Dashboard from './components/Dashboard'
-import './App.css';
-import Home from './Home.js';
-
 import Registration from './components/Registration.js';
 import Login from './components/Login.js';
 import CurrentUserProvider from './contexts/CurrentUser.js';
@@ -27,11 +26,13 @@ function App() {
         <Navbar />
         <Hero />
         <Dashboard />
+
         <Routes>
-          <Route exact path="/" component={Home}/>
-          <Route exact path="/registration" component={Registration}/>
-          <Route exact path="/login" component={Login}/>
+          <Route path="/" element={<Home/>}/>
+          <Route path="/registration" element={<Registration/>}/>
+          <Route path="/login" element={<Login/>}/>
         </Routes>
+        
         <Footer />
       </BrowserRouter>
     </CurrentUserProvider>

@@ -6,7 +6,7 @@ import {useNavigate} from "react-router"
 
 export default function Login() {
 
-  const history = useNavigate()
+  const navigate = useNavigate()
 
   const { setCurrentUser } = useContext(CurrentUser)
 
@@ -19,7 +19,7 @@ export default function Login() {
 
   async function handleSubmit(e) {
     e.preventDefault()
-    const response = await fetch(`http://localhost:5000/authentication`, {
+    const response = await fetch(`http://localhost:7000/authentication`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -30,7 +30,7 @@ export default function Login() {
     const data = await response.json()
     if (response.status === 200){
       setCurrentUser(data.user)
-      history.push(`/`)
+      navigate(`/`)
     }
     else{
       setErrorMessage(data.message)
@@ -40,6 +40,15 @@ export default function Login() {
   return (
       <div clasName="loginContainer">
       <h1>Log In</h1>
+      {
+        errorMessage !== null
+        ? (
+          <div className='alert alert-danger' role="alert">
+            {errorMessage}
+            </div>
+        )
+        : null
+      }
       <Form onSubmit={handleSubmit}>
         <Form.Group className="mb-3" controlId="loginEmail">
           <Form.Label>Email address</Form.Label>
