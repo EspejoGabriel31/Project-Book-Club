@@ -40,7 +40,7 @@ export default function Registration() {
                     <Modal.Title>Sign Up</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <Form onSubmit={handleClose} id="register">
+                    <Form onSubmit={handleSubmit} id="register"> {/* onSubmit on Form needs to be handleSubmit */}
                         <Form.Group className="mb-3" controlId="first_name">
                             <Form.Label>First name</Form.Label>
                             <Form.Control
@@ -90,7 +90,7 @@ export default function Registration() {
                     <Button onClick={handleClose}>
                         Close
                     </Button>
-                    <Button type="submit" form="register" onSubmit={handleSubmit}>
+                    <Button type="submit" form="register" onSubmit={handleClose}>
                         Sign Up
                     </Button>
                 </Modal.Footer>

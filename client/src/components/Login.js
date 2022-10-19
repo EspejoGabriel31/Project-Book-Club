@@ -51,7 +51,7 @@ export default function Login() {
           <Modal.Title>Sign In</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <Form id="login" onSubmit={handleClose}>
+           <Form id="login" onSubmit={handleSubmit}> {/* onSubmit on Form needs to be handleSubmit */}
             <Form.Group className="mb-3" controlId="loginEmail">
               <Form.Label>Email address</Form.Label>
               <Form.Control
@@ -79,7 +79,7 @@ export default function Login() {
           <Button onClick={handleClose}>
             Close
           </Button>
-          <Button onSubmit={handleSubmit} form="login"
+          <Button onSubmit={handleClose} form="login"
             type="submit"
           >
             Sign In
