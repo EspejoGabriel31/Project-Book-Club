@@ -24,9 +24,8 @@ export default function Login() {
 
   async function handleSubmit(e) {
     e.preventDefault()
-    const response = await fetch(`http://localhost:7000/authentication`, {
+    const response = await fetch(`http://localhost:7000/authentication/`, {
       method: 'POST',
-      credentials: 'include',
       headers: {
         'Content-Type': 'application/json'
       },
@@ -36,7 +35,7 @@ export default function Login() {
     const data = await response.json()
     if (response.status === 200){
       setCurrentUser(data.user)
-      // navigate(`/`)
+      localStorage.setItem('token', data.token)
       handleClose()
     }
     else{

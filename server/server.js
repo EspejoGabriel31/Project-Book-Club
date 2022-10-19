@@ -3,22 +3,24 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const cors = require('cors')
 const path = require('path')
-const cookieSession = require('cookie-session')
+// const cookieSession = require('cookie-session')
 
 const PORT = process.env.PORT || 7000
 const app = express()
 
 //EXPRESS SETTINGS
 
-app.use(cookieSession({
-    name: 'session',
-    keys: [process.env.SESSION_SECRET],
-    maxAge: 24 * 60 * 60 * 1000 //24 hours
-}))
-app.use(cors({
-    origin: 'http://localhost:3000',
-    credentials: true
-}))
+// app.use(cookieSession({
+//     name: 'session',
+//     keys: [process.env.SESSION_SECRET],
+//     maxAge: 24 * 60 * 60 * 1000 //24 hours
+// }))
+app.use(cors()
+//     {
+//     origin: 'http://localhost:3000',
+//     credentials: true
+// })
+)
 app.use(express.static('public'))
 app.use(express.urlencoded({ extended: true}))
 app.use(bodyParser.json())
