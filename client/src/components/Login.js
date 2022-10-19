@@ -26,6 +26,7 @@ export default function Login() {
     e.preventDefault()
     const response = await fetch(`http://localhost:7000/authentication`, {
       method: 'POST',
+      credentials: 'include',
       headers: {
         'Content-Type': 'application/json'
       },
