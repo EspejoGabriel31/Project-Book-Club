@@ -16,14 +16,14 @@ router.get('/', async (req, res) => {
     res.json(books)
 })
 
-router .get('/:bookId', async(req, res) => {
-    let bookId = Number(req.params.bookId)
-    if (isNaN(bookId)){
-        res.status(404).json({message: `Invalid id "${bookId}"`})
+router .get('/:book_id', async(req, res) => {
+    let book_id = Number(req.params.book_id)
+    if (isNaN(book_id)){
+        res.status(404).json({message: `Invalid id "${book_id}"`})
     }
     else{
         const book = await Book.findOne({
-            where: { bookId: bookId},
+            where: { book_id: book_id},
             include: {
                 association: 'posts',
                 include: 'user'

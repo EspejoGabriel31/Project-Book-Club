@@ -15,10 +15,10 @@ const Navbar = () => {
     let loginActions = (
         <>
             <li className='nav-item'>
-               <Login />
+                <Login />
             </li>
             <li className='nav-item'>
-             <Registration />
+                <Registration />
             </li>
         </>
     )
