@@ -1,10 +1,15 @@
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import {useState, useEffect} from 'react'
-import { useNavigate, useParams } from "react-router"
+import {useState} from 'react'
+import { useNavigate } from "react-router"
+import Modal from 'react-bootstrap/Modal';
 
 export default function Registration() {
+    const [show, setShow] = useState(false);
 
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+  
     const navigate = useNavigate()
 
     const [user, setUser] = useState({
@@ -27,8 +32,13 @@ export default function Registration() {
         navigate(`/`)
     }
     return (
-        <div clasName="regisContainer">
-        <h1>Sign Up</h1>
+        <>
+        <button className="nav-item" onClick={handleShow}>Register</button>
+        <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Sign Up</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
         <Form onSubmit={handleSubmit}>
             <Form.Group className="mb-3" controlId="first_name">
                 <Form.Label>First name</Form.Label>
@@ -69,10 +79,17 @@ export default function Registration() {
                     value={(user.password)}
                     onChange={e => setUser({...user, password: e.target.value})}/>
             </Form.Group>
-            <Button variant="primary" type="submit">
-                Submit
-            </Button>
         </Form>
-        </div>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button onClick={handleClose}>
+            Close
+          </Button>
+          <Button onClick={handleClose}>
+            Sign Up
+          </Button>
+        </Modal.Footer>
+      </Modal>
+        </>
     );
 }
