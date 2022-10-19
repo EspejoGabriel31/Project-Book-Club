@@ -1,8 +1,8 @@
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import {useState, useContext} from 'react'
+import { useState, useContext } from 'react'
 import { CurrentUser } from '../contexts/CurrentUser';
-import {useNavigate} from "react-router"
+import { useNavigate } from "react-router"
 import Modal from 'react-bootstrap/Modal';
 
 export default function Login() {
@@ -10,7 +10,7 @@ export default function Login() {
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-  
+
   const navigate = useNavigate()
 
   const { setCurrentUser } = useContext(CurrentUser)
@@ -33,43 +33,45 @@ export default function Login() {
     })
 
     const data = await response.json()
-    if (response.status === 200){
+    if (response.status === 200) {
       setCurrentUser(data.user)
       localStorage.setItem('token', data.token)
       handleClose()
     }
-    else{
+    else {
       setErrorMessage(data.message)
     }
   }
 
   return (
     <>
-        <button className="nav-item" onClick={handleShow}>Sign In</button>
-        <Modal show={show} onHide={handleClose}>
+      <button className="nav-item" onClick={handleShow}>Sign In</button>
+      <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>Sign In</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <Form id="login" onSubmit={handleSubmit}>
+          <Form id="login" onSubmit={handleClose}>
             <Form.Group className="mb-3" controlId="loginEmail">
               <Form.Label>Email address</Form.Label>
-              <Form.Control 
-                type="email" 
-                placeholder="Enter email" 
+              <Form.Control
+                type="email"
+                placeholder="Enter email"
+                required
+                pattern="^[a-zA-Z0-9]+(\.[_a-zA-Z0-9]+)*@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*(\.[a-zA-Z]{2,15})$"
                 value={(account.email)}
-                onChange={e => setAccount({...account, email: e.target.value})}/>
+                onChange={e => setAccount({ ...account, email: e.target.value })} />
               <Form.Text className="text-muted">
                 We'll never share your email with anyone else.
               </Form.Text>
             </Form.Group>
             <Form.Group className="mb-3" controlId="loginPass">
               <Form.Label>Password</Form.Label>
-              <Form.Control 
-                type="password" 
-                placeholder="Password" 
+              <Form.Control
+                type="password"
+                placeholder="Password"
                 value={(account.password)}
-                onChange={e => setAccount({...account, password: e.target.value})}/>
+                onChange={e => setAccount({ ...account, password: e.target.value })} />
             </Form.Group>
           </Form>
         </Modal.Body>
@@ -77,14 +79,14 @@ export default function Login() {
           <Button onClick={handleClose}>
             Close
           </Button>
-          <Button onClick={handleClose} form="login"
+          <Button onSubmit={handleSubmit} form="login"
             type="submit"
           >
             Sign In
           </Button>
         </Modal.Footer>
       </Modal>
-      </>
+    </>
   );
 }
 

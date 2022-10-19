@@ -1,6 +1,6 @@
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import {useState} from 'react'
+import { useState } from 'react'
 import { useNavigate } from "react-router"
 import Modal from 'react-bootstrap/Modal';
 
@@ -9,7 +9,7 @@ export default function Registration() {
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
-  
+
     const navigate = useNavigate()
 
     const [user, setUser] = useState({
@@ -34,63 +34,67 @@ export default function Registration() {
     }
     return (
         <>
-        <button className="nav-item" onClick={handleShow}>Register</button>
-        <Modal show={show} onHide={handleClose}>
-        <Modal.Header closeButton>
-          <Modal.Title>Sign Up</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-        <Form onSubmit={handleSubmit} id="register">
-            <Form.Group className="mb-3" controlId="first_name">
-                <Form.Label>First name</Form.Label>
-                <Form.Control 
-                    type="first-name" 
-                    placeholder="First name" 
-                    value={(user.first_name)}
-                    onChange={e => setUser({...user, first_name: e.target.value})}/>
-                <Form.Text className="text-muted">
-                </Form.Text>
-            </Form.Group>
-            <Form.Group className="mb-3" controlId="last_name">
-                <Form.Label>Last name</Form.Label>
-                <Form.Control 
-                    type="last-name" 
-                    placeholder="Last name" 
-                    value={(user.last_name)}
-                    onChange={e => setUser({...user, last_name: e.target.value})}/>
-                <Form.Text className="text-muted">
-                </Form.Text>
-            </Form.Group>
-            <Form.Group className="mb-3" controlId="regisEmail">
-                <Form.Label>Email address</Form.Label>
-                <Form.Control 
-                    type="email" 
-                    placeholder="Enter email" 
-                    value={(user.email)}
-                    onChange={e => setUser({...user, email: e.target.value})}/>
-                <Form.Text className="text-muted">
-                    We'll never share your email with anyone else.
-                </Form.Text>
-            </Form.Group>
-            <Form.Group className="mb-3" controlId="regisPass">
-                <Form.Label>Password</Form.Label>
-                <Form.Control 
-                    type="password" 
-                    placeholder="Password" 
-                    value={(user.password)}
-                    onChange={e => setUser({...user, password: e.target.value})}/>
-            </Form.Group>
-        </Form>
-        </Modal.Body>
-        <Modal.Footer>
-          <Button onClick={handleClose}>
-                Close
-            </Button>
-            <Button type="submit" form="register" onClick={handleClose}>
-                Sign Up
-            </Button>
-        </Modal.Footer>
-      </Modal>
+            <button className="nav-item" onClick={handleShow}>Register</button>
+            <Modal show={show} onHide={handleClose}>
+                <Modal.Header closeButton>
+                    <Modal.Title>Sign Up</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    <Form onSubmit={handleClose} id="register">
+                        <Form.Group className="mb-3" controlId="first_name">
+                            <Form.Label>First name</Form.Label>
+                            <Form.Control
+                                type="first-name"
+                                placeholder="First name"
+                                value={(user.first_name)}
+                                onChange={e => setUser({ ...user, first_name: e.target.value })} />
+                            <Form.Text className="text-muted">
+                            </Form.Text>
+                        </Form.Group>
+                        <Form.Group className="mb-3" controlId="last_name">
+                            <Form.Label>Last name</Form.Label>
+                            <Form.Control
+                                type="last-name"
+                                placeholder="Last name"
+                                value={(user.last_name)}
+                                onChange={e => setUser({ ...user, last_name: e.target.value })} />
+                            <Form.Text className="text-muted">
+                            </Form.Text>
+                        </Form.Group>
+                        <Form.Group className="mb-3" controlId="regisEmail">
+                            <Form.Label>Email address</Form.Label>
+                            <Form.Control
+                                type="email"
+                                placeholder="Enter email"
+                                required
+                                pattern="^[a-zA-Z0-9]+(\.[_a-zA-Z0-9]+)*@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*(\.[a-zA-Z]{2,15})$"
+                                value={(user.email)}
+                                onChange={e => setUser({ ...user, email: e.target.value })} />
+                            <Form.Text className="text-muted">
+                                We'll never share your email with anyone else.
+                            </Form.Text>
+                        </Form.Group>
+                        <Form.Group className="mb-3" controlId="regisPass">
+                            <Form.Label>Password</Form.Label>
+                            <Form.Control
+                                type="password"
+                                placeholder="Password"
+                                required 
+                                minLength={8}
+                                value={(user.password)}
+                                onChange={e => setUser({ ...user, password: e.target.value })} />
+                        </Form.Group>
+                    </Form>
+                </Modal.Body>
+                <Modal.Footer>
+                    <Button onClick={handleClose}>
+                        Close
+                    </Button>
+                    <Button type="submit" form="register" onSubmit={handleSubmit}>
+                        Sign Up
+                    </Button>
+                </Modal.Footer>
+            </Modal>
         </>
     );
 }
