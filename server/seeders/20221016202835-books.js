@@ -41,16 +41,40 @@ module.exports = {
         picture: '../client/src/pictures/Mother of Learning.jpg'
       },
       {
-        genre: '',
-        book_name: '',
-        book_author: '',
-        picture: ''
+        genre: 'Adventure, Fiction',
+        book_name: 'Hero',
+        book_author: 'Mike Lupica',
+        picture: '../client/src/pictures/Hero3.jpg'
       },
       {
-        genre: '',
-        book_name: '',
-        book_author: '',
-        picture: ''
+        genre: 'Literary Fiction, Historical Fiction',
+        book_name: 'The People Of Ostrich Mountain',
+        book_author: 'Ndirangu Githaiga',
+        picture: '../client/src/pictures/PeopleOfOstrichMountain.jpg'
+      },
+      {
+        genre: 'Literary Fiction, Historical Fiction',
+        book_name: 'Things Fall Apart',
+        book_author: 'Chinua Achebe',
+        picture: '../client/src/pictures/ThingsFallApart.jpg'
+      },
+      {
+        genre: 'Fiction, Historical Fiction, Romance, Family Saga',
+        book_name: 'The Thorn Birds',
+        book_author: 'Colleen McCullough',
+        picture: '../client/src/pictures/ThornBirds.jpg'
+      },
+      {
+        genre: 'Autobiography, Memoir',
+        book_name: 'Unbowed',
+        book_author: 'Wangari Maathai',
+        picture: '../client/src/pictures/Unbowed.jpg'
+      },
+      {
+        genre: 'Philosophical Literature, Quest',
+        book_name: 'Uncle Toms Cabin',
+        book_author: 'Harriet Beecher Stowe',
+        picture: '../client/src/pictures/UncleTomCabin2.jpg'
       },
     ])
 
