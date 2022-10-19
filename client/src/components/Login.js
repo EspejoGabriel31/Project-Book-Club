@@ -35,7 +35,8 @@ export default function Login() {
     const data = await response.json()
     if (response.status === 200){
       setCurrentUser(data.user)
-      navigate(`/`)
+      // navigate(`/`)
+      handleClose()
     }
     else{
       setErrorMessage(data.message)
@@ -50,33 +51,35 @@ export default function Login() {
           <Modal.Title>Sign In</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-      <Form>
-        <Form.Group className="mb-3" controlId="loginEmail">
-          <Form.Label>Email address</Form.Label>
-          <Form.Control 
-            type="email" 
-            placeholder="Enter email" 
-            value={(account.email)}
-            onChange={e => setAccount({...account, email: e.target.value})}/>
-          <Form.Text className="text-muted">
-            We'll never share your email with anyone else.
-          </Form.Text>
-        </Form.Group>
-        <Form.Group className="mb-3" controlId="loginPass">
-          <Form.Label>Password</Form.Label>
-          <Form.Control 
-            type="password" 
-            placeholder="Password" 
-            value={(account.password)}
-            onChange={e => setAccount({...account, password: e.target.value})}/>
-        </Form.Group>
-      </Form>
-      </Modal.Body>
+          <Form id="login" onSubmit={handleSubmit}>
+            <Form.Group className="mb-3" controlId="loginEmail">
+              <Form.Label>Email address</Form.Label>
+              <Form.Control 
+                type="email" 
+                placeholder="Enter email" 
+                value={(account.email)}
+                onChange={e => setAccount({...account, email: e.target.value})}/>
+              <Form.Text className="text-muted">
+                We'll never share your email with anyone else.
+              </Form.Text>
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="loginPass">
+              <Form.Label>Password</Form.Label>
+              <Form.Control 
+                type="password" 
+                placeholder="Password" 
+                value={(account.password)}
+                onChange={e => setAccount({...account, password: e.target.value})}/>
+            </Form.Group>
+          </Form>
+        </Modal.Body>
         <Modal.Footer>
           <Button onClick={handleClose}>
             Close
           </Button>
-          <Button onClick={handleClose}>
+          <Button onClick={handleClose} form="login"
+            type="submit"
+          >
             Sign In
           </Button>
         </Modal.Footer>

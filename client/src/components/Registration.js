@@ -21,7 +21,7 @@ export default function Registration() {
 
     async function handleSubmit(e) {
         e.preventDefault()
-
+        console.log(e)
         await fetch(`http://localhost:7000/users/`, {
             method: 'POST',
             headers: {
@@ -29,7 +29,8 @@ export default function Registration() {
             },
             body: JSON.stringify(user)
         })
-        navigate(`/`)
+        // navigate(`/`)
+        handleClose()
     }
     return (
         <>
@@ -39,7 +40,7 @@ export default function Registration() {
           <Modal.Title>Sign Up</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-        <Form onSubmit={handleSubmit}>
+        <Form onSubmit={handleSubmit} id="register">
             <Form.Group className="mb-3" controlId="first_name">
                 <Form.Label>First name</Form.Label>
                 <Form.Control 
@@ -83,11 +84,11 @@ export default function Registration() {
         </Modal.Body>
         <Modal.Footer>
           <Button onClick={handleClose}>
-            Close
-          </Button>
-          <Button onClick={handleClose}>
-            Sign Up
-          </Button>
+                Close
+            </Button>
+            <Button type="submit" form="register" onClick={handleClose}>
+                Sign Up
+            </Button>
         </Modal.Footer>
       </Modal>
         </>
