@@ -76,3 +76,9 @@
         font-size: 1.4rem;
     }
 
+button {
+    all:unset;
+    font-size: 1.4rem;
+    color:#f2f2f2;
+    margin-top: 15px;
+}

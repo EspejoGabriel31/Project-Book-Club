@@ -16,7 +16,7 @@ const { User } = db
 // })
 router.post('/', async (req, res) => {
     let {password, ...rest} = req.body
-    console.log(password)
+    console.log(req.body)
     const user = await User.create({
         ...rest,
         // role: 'poster',

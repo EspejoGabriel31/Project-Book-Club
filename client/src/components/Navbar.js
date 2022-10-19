@@ -1,8 +1,9 @@
 import React, {useState, useEffect, useContext} from 'react'
-import styles from './Navbar.css'
 import './Navbar.css'
 import {useNavigate} from "react-router"
 import { CurrentUser } from '../contexts/CurrentUser';
+import Registration from './Registration';
+import Login from './Login'
 
 
 const Navbar = () => {
@@ -14,10 +15,10 @@ const Navbar = () => {
     let loginActions = (
         <>
             <li className='nav-item'>
-                <a href="#" onClick={() => navigate("/login")}>Login</a>
+               <Login />
             </li>
             <li className='nav-item'>
-                <a href="#" onClick={() => navigate("/registration")}>Register</a>
+             <Registration />
             </li>
         </>
     )
@@ -45,7 +46,6 @@ const Navbar = () => {
     return (
         <div className= 'navbar'>
         <div className= "container">
-            
                 <a 
                     href="#" 
                     onClick={()=> navigate('')}>

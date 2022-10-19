@@ -1,10 +1,15 @@
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import {useState, useEffect} from 'react'
-import { useNavigate, useParams } from "react-router"
+import {useState} from 'react'
+import { useNavigate } from "react-router"
+import Modal from 'react-bootstrap/Modal';
 
 export default function Registration() {
+    const [show, setShow] = useState(false);
 
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+  
     const navigate = useNavigate()
 
     const [user, setUser] = useState({
@@ -16,7 +21,7 @@ export default function Registration() {
 
     async function handleSubmit(e) {
         e.preventDefault()
-
+        console.log(e)
         await fetch(`http://localhost:7000/users/`, {
             method: 'POST',
             headers: {
@@ -24,12 +29,18 @@ export default function Registration() {
             },
             body: JSON.stringify(user)
         })
-        navigate(`/`)
+        // navigate(`/`)
+        handleClose()
     }
     return (
-        <div clasName="regisContainer">
-        <h1>Sign Up</h1>
-        <Form onSubmit={handleSubmit}>
+        <>
+        <button className="nav-item" onClick={handleShow}>Register</button>
+        <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Sign Up</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+        <Form onSubmit={handleSubmit} id="register">
             <Form.Group className="mb-3" controlId="first_name">
                 <Form.Label>First name</Form.Label>
                 <Form.Control 
@@ -69,10 +80,17 @@ export default function Registration() {
                     value={(user.password)}
                     onChange={e => setUser({...user, password: e.target.value})}/>
             </Form.Group>
-            <Button variant="primary" type="submit">
-                Submit
-            </Button>
         </Form>
-        </div>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button onClick={handleClose}>
+                Close
+            </Button>
+            <Button type="submit" form="register" onClick={handleClose}>
+                Sign Up
+            </Button>
+        </Modal.Footer>
+      </Modal>
+        </>
     );
 }
