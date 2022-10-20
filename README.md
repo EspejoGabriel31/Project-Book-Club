@@ -1,6 +1,7 @@
 # Project-Book-Club: East of Reading
 
-East of Reading is a rating book site that welcomes anyone who loves to read and share what they love about books.
+East of Reading is a rating book site that welcomes anyone who loves to read and share what they love about books. 
+The website is a Book Club with various books from all across the globe that Users visiting the site, can find then join in the discussions of each of those different genres of books.
 
 ## Technologies used
 1. MySQL
