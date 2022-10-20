@@ -72,6 +72,28 @@ router.post('/:book_id/posts', async (req, res) =>{
 
 })
 
+router.delete('/:book_id/posts/:post_id', async (req,res) =>{
+    let book_id = Number(req.params.book_id)
+    let post_id = Number(req.params.post_id)
 
+    if (isNaN(book_id)){
+        res.status(404).json({message: `Invalid id "${book_id}"`})
+    }
+    else if (isNaN(post_id)){
+        res.status(404).json({message: `Invalid id "${post_id}"`})
+    }
+    else{
+        const post = await Post.findOne({
+            where: { post_id: post_id, book_id: book_id}
+        })
+        if(!post){
+            res.status(404).json({ message: `Could not find post with id "${post_id}" for book with id ${book_id}`})
+        }
+        else{
+            await post.destroy()
+            res.json(post)
+        }
+    }
+})
 
 module.exports = router
