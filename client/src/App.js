@@ -16,11 +16,11 @@ import Find from './components/Find'
 function App() {
   const [data, setData] = useState(null);
 
-  useEffect(() => {
-    fetch('/api')
-      .then((res) => res.json())
-      .then((data) => setData(data.message));
-  }, []);
+//   useEffect(() => {
+//     fetch('/api')
+//       .then((res) => res.json())
+//       .then((data) => setData(data.message));
+//   }, []);
 
   return (
 

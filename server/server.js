@@ -32,9 +32,9 @@ app.use('/books', require('./controllers/books'))
 app.use('/users', require('./controllers/users'))
 app.use('/authentication', require('./controllers/authentication'))
 
-app.get('/api', (req, res) => {
-    res.json({ message: 'All Systems Online'})
-})
+// app.get('/api', (req, res) => {
+//     res.json({ message: 'All Systems Online'})
+// })
 
 app.get('*', (req, res) => {
     res.sendFile(path.resolve(__dirname, '../client/build', 'index.html'))

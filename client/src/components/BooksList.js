@@ -29,11 +29,7 @@ export default function BookList(data) {
                         {book.book_name}
                     </a>
                 </h3>
-                <h4>
-                    {/* <a href="#" onClick={() => navigate(`/books/${book.bookId}`)}> */}
-                        {book.book_author}
-                    {/* </a> */}
-                </h4>
+                <h4>{book.book_author}</h4>
                 <p className="text-center">
 					{book.genre}
 				</p>
