@@ -1,9 +1,13 @@
-body {
+/* body {
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../pictures/Hero2.jpg") no-repeat;
     background-size: cover;
     display: flex;
     width: 100%;
     
+} */
+
+.banner{
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../pictures/Hero2.jpg") no-repeat;
 }
 
 .hero-text {
@@ -14,7 +18,8 @@ body {
     transform: translate(-50%, -50%);
     color: white;
   }
-  .hero-text button {
+
+ .hero-text button {
     border: none;
     outline: 0;
     display: inline-block;

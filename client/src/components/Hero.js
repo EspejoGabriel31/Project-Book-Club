@@ -9,7 +9,7 @@ const Hero = () => {
   return (
     <div>Welcome to our book club!
     <form>
-        <div className>
+        <div className="banner">
             <label>Look up:  </label>
             <input type="text" placeholder='Novels, Manga, etc' />
             <button>Search</button>
