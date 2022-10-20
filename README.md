@@ -8,7 +8,7 @@ East of Reading is a rating book site that welcomes anyone who loves to read and
 3. ReactJS
 4. NodeJS
 
-## Setup Instructions 
+## Setup 
 > You will need to have a database to connect to. Follow the instructions to set it up.
 * Fork and clone the repo into your local machine
 * Then navigate to the __server__ folder and run `npm i` to install the dependencies for the _backend_
