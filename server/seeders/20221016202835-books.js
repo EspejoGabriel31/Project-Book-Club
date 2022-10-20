@@ -71,7 +71,7 @@ module.exports = {
         picture: '../client/src/pictures/Unbowed.jpg'
       },
       {
-        genre: 'Philosophical Literature, Adventure, sQuest',
+        genre: 'Philosophical Literature, Quest',
         book_name: 'Uncle Toms Cabin',
         book_author: 'Harriet Beecher Stowe',
         picture: '../client/src/pictures/UncleTomCabin2.jpg'
