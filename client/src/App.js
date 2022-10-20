@@ -26,7 +26,7 @@ function App() {
       <BrowserRouter>
         <Navbar />
         <Hero />
-        <Dashboard />
+        
 
         <Routes>
           <Route path="/" element={<Home/>}/>
