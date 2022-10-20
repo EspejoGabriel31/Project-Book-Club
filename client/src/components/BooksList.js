@@ -21,13 +21,13 @@ export default function BookList(data) {
                 <img style={{ maxWidth: 200 }} src={book.picture} alt={book.name} />
                 <h3>
                     <a href="#" onClick={() => navigate(`/books/${book.bookId}`)}>
-                        {book.name}
+                        {book.book_name}
                     </a>
                 </h3>
                 <h4>
-                    <a href="#" onClick={() => navigate(`/books/${book.bookId}`)}>
-                        {book.author}
-                    </a>
+                    {/* <a href="#" onClick={() => navigate(`/books/${book.bookId}`)}> */}
+                        {book.book_author}
+                    {/* </a> */}
                 </h4>
                 <p className="text-center">
 					{book.genre}
