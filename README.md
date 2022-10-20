@@ -20,6 +20,7 @@ DB_PASSWORD='YOUR_PASSWORD'
 DB_DATABASE=book_club
 
 ```
+* Since the database run locally, you will also need to run `sequelize db:migrate`
 * Next, navigate to the __client__ folder and run `npm i` to install the dependencies for the _frontend_
 * Finally, run `npm start` inside the __client__ folder; and run `node server.js` inside the __server__ folder to get the app run.
 
