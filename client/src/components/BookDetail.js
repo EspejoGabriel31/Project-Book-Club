@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router"
 import PostContainer from "./PostContainer";
 import NewPost from "./NewPost";
-
+/* vvvvvvvv FIX THIS LATER vvvvvvvv */
 const poster1 = new URL("../pictures/100YearsOfSolitude1.jpg", import.meta.url)
 const poster2 = new URL("../pictures/ChainsawMan1.jpeg", import.meta.url)
 const poster3 = new URL("../pictures/MarriageToxin1.jpg", import.meta.url)
@@ -20,7 +20,7 @@ function BookDetail() {
 
 	const { book_id } = useParams()
 
-	const navigate = useNavigate()
+	// const navigate = useNavigate()
 
 	const [book, setBook] = useState(null)
 
@@ -38,18 +38,18 @@ function BookDetail() {
 		return <h1>Loading</h1>
 	}
 
-	function editBook() {
+	// function editBook() {
 
-		navigate(`/books/${book.book_id}/edit`)
+	// 	navigate(`/books/${book.book_id}/edit`)
 
-	}
+	// }
 
-	async function deleteBook() {
-		await fetch(`http://localhost:7000/books/${book.book_id}`, {
-			method: 'DELETE'
-		})
-		navigate('/books')
-	}
+	// async function deleteBook() {
+	// 	await fetch(`http://localhost:7000/books/${book.book_id}`, {
+	// 		method: 'DELETE'
+	// 	})
+	// 	navigate('/books')
+	// }
 
 	async function deletePost(deletedPost) {
 
@@ -66,7 +66,7 @@ function BookDetail() {
 	}
 
 	async function createPost(postAttributes) {
-
+        console.log('post attributes:\n', postAttributes)
 		const response = await fetch(`http://localhost:7000/books/${book.book_id}/posts`, {
 			method: 'POST',
 			headers: {
@@ -74,9 +74,9 @@ function BookDetail() {
 			},
 			body: JSON.stringify(postAttributes)
 		})
-
+        
 		const post = await response.json()
-
+        
 		setBook({
 			...book,
 			posts: [
@@ -96,8 +96,11 @@ function BookDetail() {
 
 	if (book.posts.length) {
 		posts = book.posts.map(post => {
+            console.log(post)
 			return (
-				<PostContainer key={post.post_id} post={post} onDelete={() => deletePost(post)} />
+				<PostContainer key={post.post_id} post={post} 
+                onDelete={() => deletePost(post)} 
+                />
 			)
 		})
 	}
@@ -115,7 +118,10 @@ function BookDetail() {
 				{posts}
 			</div>
 			<hr />
-			<NewPost book={book} onSubmit={createPost}/>
+			<NewPost 
+                book={book} 
+                onSubmit={createPost}
+            />
 		</div>
 	)
 }

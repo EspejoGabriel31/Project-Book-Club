@@ -1,20 +1,16 @@
 import React from 'react'
 import './Hero.css'
-import {AiOutlineSearch} from 'react-icons/ai'
-
-
 
 
 const Hero = () => {
   return (
-    <div>Welcome to our book club!
+    <div>
     <form>
         <div className="banner">
-            <label>Look up:  </label>
-            <input type="text" placeholder='Novels, Manga, etc' />
-            <button>Search</button>
-        <div className="container">
-            
+            <div className="hero-text">
+                <label>Look up:  </label>
+                <input type="text" placeholder='Novels, Manga, etc' />
+                <button>Search</button>
             </div>    
         </div>
 

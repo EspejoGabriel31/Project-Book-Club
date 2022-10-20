@@ -11,23 +11,27 @@ import Login from './components/Login.js';
 import BooksList from './components/BooksList.js'
 import CurrentUserProvider from './contexts/CurrentUser.js';
 import BookDetail from './components/BookDetail';
+import Find from './components/Find'
 
 function App() {
   const [data, setData] = useState(null);
 
-  useEffect(() => {
-    fetch('/api')
-      .then((res) => res.json())
-      .then((data) => setData(data.message));
-  }, []);
+//   useEffect(() => {
+//     fetch('/api')
+//       .then((res) => res.json())
+//       .then((data) => setData(data.message));
+//   }, []);
 
   return (
 
     <CurrentUserProvider>
       <BrowserRouter>
         <Navigation />
-        <Hero />
+        
+        
         <main>
+        {/* <Hero /> */}
+        {/* <Find/> */}
         <Routes>
           <Route path="/" element={<Home/>}/>
           <Route path="/books" element={<BooksList/>}/>
