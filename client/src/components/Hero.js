@@ -7,12 +7,11 @@ const Hero = () => {
     <div>
     <form>
         <div className="banner">
-            
-        <div className="container">
-            <label>Look up:  </label>
-            <input type="text" placeholder='Novels, Manga, etc' />
-            <button>Search</button>
-        </div>    
+            <div className="hero-text">
+                <label>Look up:  </label>
+                <input type="text" placeholder='Novels, Manga, etc' />
+                <button>Search</button>
+            </div>    
         </div>
 
     </form>
