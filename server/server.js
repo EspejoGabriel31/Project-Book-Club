@@ -27,6 +27,8 @@ app.use(bodyParser.json())
 
 app.use(express.static(path.resolve(__dirname, '../client/build')))
 
+
+app.use('/books', require('./controllers/books'))
 app.use('/users', require('./controllers/users'))
 app.use('/authentication', require('./controllers/authentication'))
 

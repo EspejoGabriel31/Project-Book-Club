@@ -12,6 +12,7 @@ router.post('/', async (req, res) => {
 
 //GET ALL Route Book
 router.get('/', async (req, res) => {
+    console.log("books")
     const books = await Book.findAll()
     res.json(books)
 })
@@ -31,3 +32,6 @@ router .get('/:book_id', async(req, res) => {
         })
     }
 })
+
+
+module.exports = router

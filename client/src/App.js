@@ -8,6 +8,7 @@ import Hero from './components/Hero.js'
 import Dashboard from './components/Dashboard'
 import Registration from './components/Registration.js';
 import Login from './components/Login.js';
+import BooksList from './components/BooksList.js'
 import CurrentUserProvider from './contexts/CurrentUser.js';
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
 
         <Routes>
           <Route path="/" element={<Home/>}/>
+          <Route path="/books" element={<BooksList/>}/>
           <Route path="/registration" element={<Registration/>}/>
           <Route path="/login" element={<Login/>}/>
         </Routes>

@@ -56,7 +56,10 @@ const Navbar = () => {
             
             <ul className="nav">
                 <li className="nav-item">
-                    <a href="/">New Releases</a>
+                    <a 
+                        href="#"
+                        onClick={() => navigate('/books')}
+                    >New Releases</a>
                 </li>
                 <li className="nav-item">
                     <a href="/">Reviews</a>
