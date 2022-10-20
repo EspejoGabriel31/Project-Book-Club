@@ -1,3 +1,10 @@
+h1{
+    text-align: center;   
+}
+
+p{
+    text-align: center;   
+}
 .find {
     max-width: 1040px;
     margin: auto;

@@ -1,14 +1,18 @@
-function PostContainer({ post, onDelete }) {
+function PostContainer({ post
+    // , onDelete 
+}) {
+    console.log("post: ", post.user)
     return (
         <div className="border col-sm-4">
-            <h4>{post.content}</h4>
+            
             <h3>
-                <strong>- {post.rater.first_name} {post.rater.last_name}</strong>
+                <strong>{post.user.first_name} {post.user.last_name}</strong>
             </h3>
-            <h4>Rating: {post.stars}</h4>
-            <button className="btn btn-danger" onClick={onDelete} >
+            <p>{post.content}</p>
+            {/* <h4>Rating: {post.stars}</h4> */}
+            {/* <button className="btn btn-danger" onClick={onDelete} >
                 Delete Post
-            </button>
+            </button> */}
         </div>
     )
 }

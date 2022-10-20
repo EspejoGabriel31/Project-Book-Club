@@ -51,19 +51,19 @@ function BookDetail() {
 	// 	navigate('/books')
 	// }
 
-	async function deletePost(deletedPost) {
+	// async function deletePost(deletedPost) {
 
-		await fetch(`http://localhost:7000/books/${book.book_id}/posts/${deletedPost.postId}`, {
+	// 	await fetch(`http://localhost:7000/books/${book.book_id}/posts/${deletedPost.postId}`, {
 
-			method: 'DELETE'
-		})
+	// 		method: 'DELETE'
+	// 	})
 
-		setBook({
-			...book,
-			posts: book.posts
-				.filter(post => post.post_id !== deletedPost.post_id)
-		})
-	}
+	// 	setBook({
+	// 		...book,
+	// 		posts: book.posts
+	// 			.filter(post => post.post_id !== deletedPost.post_id)
+	// 	})
+	// }
 
 	async function createPost(postAttributes) {
         console.log(postAttributes)
@@ -97,7 +97,9 @@ function BookDetail() {
 	if (book.posts.length) {
 		posts = book.posts.map(post => {
 			return (
-				<PostContainer key={post.post_id} post={post} onDelete={() => deletePost(post)} />
+				<PostContainer key={post.post_id} post={post} 
+                // onDelete={() => deletePost(post)} 
+                />
 			)
 		})
 	}

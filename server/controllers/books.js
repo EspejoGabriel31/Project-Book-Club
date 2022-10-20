@@ -40,6 +40,7 @@ router.get('/:book_id', async(req, res) => {
     }
 })
 
+//CREATE Route Posts
 router.post('/:book_id/posts', async (req, res) =>{
     const book_id = Number(req.params.book_id)
     
@@ -59,14 +60,14 @@ router.post('/:book_id/posts', async (req, res) =>{
     if(!author){
         res.status(404).json({message: `Could not find user with id "${user_id}`})
     }
-    console.log("author: ", author)
+    // console.log("######################## author: ########################", author)
     const post = await Post.create({
         ...req.body,
         book_id: book_id
     })
-
+    // console.log("######################## POST: ########################\n", post)
     res.send({
-        ...this.post.toJSON(),
+        ...post.toJSON(),
         author
     })
 
