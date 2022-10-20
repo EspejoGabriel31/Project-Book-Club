@@ -30,6 +30,12 @@ router .get('/:book_id', async(req, res) => {
                 include: 'user'
             }
         })
+        if(!book){
+            res.status(404).json({message: `Could not find place with id "${book_id}`})
+        }
+        else{
+            res.json(book)
+        }
     }
 })
 
