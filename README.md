@@ -36,7 +36,7 @@ SQL database with NodeJS following with its Express framework
 ___
 
 ### Contributors
-* [Grabriel](https://github.com/EspejoGabriel31)
+* [Gabriel](https://github.com/EspejoGabriel31)
 * [Azuka](https://github.com/Knavish1)
 * [Andrew](https://github.com/DrewKW)
 * [Phuong](https://github.com/YPhuong15)
