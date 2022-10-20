@@ -76,8 +76,6 @@ const Navigation = () => {
                     <a href="#" onClick={() => navigate("/login")}>Login</a>
                 </li> }
                 {loginActions}                
-
-
             </ul>
                 </div>
             </div>

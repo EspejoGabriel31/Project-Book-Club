@@ -48,7 +48,7 @@ export default function Login() {
       <button className="nav-item" onClick={handleShow}>Sign In</button>
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>Sign In</Modal.Title>
+          <Modal.Title style={{color: '#0059ff'}}>Sign In</Modal.Title>
         </Modal.Header>
         <Modal.Body>
            <Form id="login" onSubmit={handleSubmit}> {/* onSubmit on Form needs to be handleSubmit */}
@@ -76,11 +76,12 @@ export default function Login() {
           </Form>
         </Modal.Body>
         <Modal.Footer>
-          <Button onClick={handleClose}>
+          <Button onClick={handleClose} style={{color: 'white'}}>
             Close
           </Button>
           <Button onSubmit={handleClose} form="login"
             type="submit"
+            style={{color: 'white'}}
           >
             Sign In
           </Button>

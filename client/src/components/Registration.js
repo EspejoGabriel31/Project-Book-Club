@@ -37,7 +37,7 @@ export default function Registration() {
             <button className="nav-item" onClick={handleShow}>Register</button>
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
-                    <Modal.Title>Sign Up</Modal.Title>
+                    <Modal.Title style={{color: '#0059ff'}}>Sign Up</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                     <Form onSubmit={handleSubmit} id="register"> {/* onSubmit on Form needs to be handleSubmit */}
@@ -87,10 +87,10 @@ export default function Registration() {
                     </Form>
                 </Modal.Body>
                 <Modal.Footer>
-                    <Button onClick={handleClose}>
+                    <Button style={{color: 'white'}} onClick={handleClose}>
                         Close
                     </Button>
-                    <Button type="submit" form="register" onSubmit={handleClose}>
+                    <Button style={{color: 'white'}} type="submit" form="register" onSubmit={handleClose}>
                         Sign Up
                     </Button>
                 </Modal.Footer>
