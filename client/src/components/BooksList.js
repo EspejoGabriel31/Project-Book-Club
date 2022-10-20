@@ -17,8 +17,8 @@ export default function BookList(data) {
 
     let booksListing = books.map((book) => {
         return (
-            <div className="bookContainer" key={book.bookId}>
-                <img style={{ maxWidth: 200 }} src={book.picture} alt={book.name} />
+            <div className="bookContainer" key={book.book_id}>
+                <img style={{ maxWidth: 200 }} src={book.picture} alt={book.book_name} />
                 <h3>
                     <a href="#" onClick={() => navigate(`/books/${book.book_id}`)}>
                         {book.book_name}

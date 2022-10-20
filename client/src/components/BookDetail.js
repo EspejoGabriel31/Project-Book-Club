@@ -5,7 +5,7 @@ import NewPost from "./NewPost";
 
 function BookDetail() {
 
-	const { bookId } = useParams()
+	const { book_id } = useParams()
 
 	const history = useHistory()
 
@@ -13,42 +13,42 @@ function BookDetail() {
 
 	useEffect(() => {
 		const getBook = async () => {
-			const response = await fetch(`http://localhost:7000/books/${bookId}`)
+			const response = await fetch(`http://localhost:7000/books/${book_id}`)
 			const resData = await response.json()
 			setBook(resData)
 		}
 		getBook()
-	}, [bookId])
+	}, [book_id])
 
 	if (book === null) {
 		return <h1>Loading</h1>
 	}
 
 	function editBook() {
-		history.push(`/books/${book.bookId}/edit`)
+		history.push(`/books/${book.book_id}/edit`)
 	}
 
 	async function deleteBook() {
-		await fetch(`http://localhost:7000/books/${book.bookId}`, {
+		await fetch(`http://localhost:7000/books/${book.book_id}`, {
 			method: 'DELETE'
 		})
 		history.push('/books')
 	}
 
 	async function deletePost(deletedPost) {
-		await fetch(`http://localhost:7000/books/${book.bookId}/posts/${deletedPost.postId}`, {
+		await fetch(`http://localhost:7000/books/${book.book_id}/posts/${deletedPost.post_id}`, {
 			method: 'DELETE'
 		})
 
 		setBook({
 			...book,
 			posts: book.posts
-				.filter(post => post.postId !== deletedPost.postId)
+				.filter(post => post.post_id !== deletedPost.post_id)
 		})
 	}
 
 	async function createPost(post) {
-		const response = await fetch(`http://localhost:7000/books/${book.bookId}/posts`, {
+		const response = await fetch(`http://localhost:7000/books/${book.book_id}/posts`, {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json'
@@ -95,7 +95,7 @@ function BookDetail() {
 		)
 		posts = book.posts.map(post => {
 			return (
-				<PostContainer key={post.postId} post={post} onDelete={() => deletePost(post)} />
+				<PostContainer key={post.post_id} post={post} onDelete={() => deletePost(post)} />
 			)
 		})
 	}
@@ -107,7 +107,7 @@ function BookDetail() {
 					<img style={{ maxWidth: 200 }} src={book.picture} alt={book.name} />
 				</div>
 				<div className="col-sm-6">
-					<h1>{book.name}</h1>
+					<h1>{book.book_name}</h1>
 					<h2>
 						Rating
 					</h2>
