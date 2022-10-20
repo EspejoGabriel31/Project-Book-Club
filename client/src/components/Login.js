@@ -2,7 +2,7 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { useState, useContext } from 'react'
 import { CurrentUser } from '../contexts/CurrentUser';
-import { useNavigate } from "react-router"
+// import { useNavigate } from "react-router"
 import Modal from 'react-bootstrap/Modal';
 
 export default function Login() {
@@ -11,7 +11,7 @@ export default function Login() {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  const navigate = useNavigate()
+  // const navigate = useNavigate()
 
   const { setCurrentUser } = useContext(CurrentUser)
 
@@ -48,10 +48,10 @@ export default function Login() {
       <button className="nav-item" onClick={handleShow}>Sign In</button>
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title style={{color: '#0059ff'}}>Sign In</Modal.Title>
+          <Modal.Title style={{ color: '#0059ff' }}>Sign In</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-           <Form id="login" onSubmit={handleSubmit}> {/* onSubmit on Form needs to be handleSubmit */}
+          <Form id="login" onSubmit={handleSubmit}> {/* onSubmit on Form needs to be handleSubmit */}
             <Form.Group className="mb-3" controlId="loginEmail">
               <Form.Label>Email address</Form.Label>
               <Form.Control
@@ -76,12 +76,14 @@ export default function Login() {
           </Form>
         </Modal.Body>
         <Modal.Footer>
-          <Button onClick={handleClose} style={{color: 'white'}}>
+          <Button onClick={handleClose} style={{ color: 'white' }}>
             Close
           </Button>
-          <Button onClick={handleClose} form="login"
+          <Button
+            onClick={handleClose}
+            form="login"
             type="submit"
-            style={{color: 'white'}}
+          // style={{color: 'white'}}
           >
             Sign In
           </Button>

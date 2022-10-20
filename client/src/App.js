@@ -27,15 +27,15 @@ function App() {
       <BrowserRouter>
         <Navigation />
         <Hero />
+        <main>
         <Routes>
           <Route path="/" element={<Home/>}/>
           <Route path="/books" element={<BooksList/>}/>
           <Route path="/books/:book_id" element={<BookDetail/>}/>
           <Route path="/registration" element={<Registration/>}/>
           <Route path="/login" element={<Login/>}/>
-          
         </Routes>
-        
+        </main>
         <Footer />
       </BrowserRouter>
     </CurrentUserProvider>

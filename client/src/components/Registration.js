@@ -20,6 +20,7 @@ export default function Registration() {
     })
 
     async function handleSubmit(e) {
+        console.log('does something')
         e.preventDefault()
         console.log(user)
         await fetch(`http://localhost:7000/users/`, {
@@ -29,8 +30,6 @@ export default function Registration() {
             },
             body: JSON.stringify(user)
         })
-        // navigate(`/`)
-        handleClose()
     }
     return (
         <>
@@ -90,7 +89,11 @@ export default function Registration() {
                     <Button style={{color: 'white'}} onClick={handleClose}>
                         Close
                     </Button>
-                    <Button style={{color: 'white'}} type="submit" form="register" onClick={handleClose}>
+                    <Button 
+                        style={{color: 'white'}} 
+                        type="submit" 
+                        form="register" 
+                        onClick={handleClose}>
                         Sign Up
                     </Button>
                 </Modal.Footer>

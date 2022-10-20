@@ -89,7 +89,7 @@ const Navigation = () => {
                     sticky: "top"
                 }}>
                 <Container fluid>
-                    <Navbar.Brand href="/home" id='logo'>
+                    <Navbar.Brand href="/" id='logo'>
                         <img className="me-auto" alt="logo" src={Logo} />
                         East of Reading
                     </Navbar.Brand>

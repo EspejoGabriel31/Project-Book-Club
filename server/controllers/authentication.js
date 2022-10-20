@@ -6,6 +6,7 @@ const jwt = require('json-web-token')
 const { User } = db
 
 router.post('/', async (req, res) => {
+    console.log('worked!')
     let user = await User.findOne({
         where: {email: req.body.email}
     })

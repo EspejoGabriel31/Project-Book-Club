@@ -3,6 +3,19 @@ import { useNavigate, useParams } from "react-router"
 import PostContainer from "./PostContainer";
 import NewPost from "./NewPost";
 
+const poster1 = new URL("../pictures/100YearsOfSolitude1.jpg", import.meta.url)
+const poster2 = new URL("../pictures/ChainsawMan1.jpeg", import.meta.url)
+const poster3 = new URL("../pictures/MarriageToxin1.jpg", import.meta.url)
+const poster4 = new URL("../pictures/EastOfEden1.jpg", import.meta.url)
+const poster5 = new URL("../pictures/SpyFamily2.jpeg", import.meta.url)
+const poster6 = new URL("../pictures/Mother of Learning.jpg", import.meta.url)
+const poster7 = new URL("../pictures/Hero3.jpg", import.meta.url)
+const poster8 = new URL("../pictures/PeopleOfOstrichMountain.jpg", import.meta.url)
+const poster9 = new URL("../pictures/ThingsFallApart.jpg", import.meta.url)
+const poster10 = new URL("../pictures/ThornBirds.jpg", import.meta.url)
+const poster11 = new URL("../pictures/Unbowed.jpg", import.meta.url)
+const poster12 = new URL("../pictures/UncleTomCabin2.jpg", import.meta.url)
+
 function BookDetail() {
 
 	const { book_id } = useParams()
@@ -85,34 +98,34 @@ function BookDetail() {
 			Not yet rated
 		</h3>
 	)
-	if (book.posts.length) {
-		let sumReview = book.posts.reduce((tot, c) => {
-			return tot + c.stars
-		}, 0)
-		let avgReview = Math.round(sumReview / book.posts.length)
-		let stars = ''
-		for (let i = 0; i < avgReview; i++) {
-			stars += '⭐️'
-		}
-		rating = (
-			<h3>
-				{stars} stars
-			</h3>
-		)
-		posts = book.posts.map(post => {
-			return (
-				<PostContainer key={post.post_id} post={post} onDelete={() => deletePost(post)} />
-			)
-		})
-	}
+	// if (book.posts.length) {
+	// 	let sumReview = book.posts.reduce((tot, c) => {
+	// 		return tot + c.stars
+	// 	}, 0)
+	// 	let avgReview = Math.round(sumReview / book.posts.length)
+	// 	let stars = ''
+	// 	for (let i = 0; i < avgReview; i++) {
+	// 		stars += '⭐️'
+	// 	}
+	// 	rating = (
+	// 		<h3>
+	// 			{stars} stars
+	// 		</h3>
+	// 	)
+	// 	posts = book.posts.map(post => {
+	// 		return (
+	// 			<PostContainer key={post.post_id} post={post} onDelete={() => deletePost(post)} />
+	// 		)
+	// 	})
+	// }
 
 	return (
-		<main>
+		<div>
 			<div className="row">
 				<div className="col-sm-6">
-					<img style={{ maxWidth: 200 }} src={book.picture} alt={book.book_name} />
+					<img style={{ maxWidth: 200 }} src={new URL(book.picture, import.meta.url)} alt={book.book_name} />
 				</div>
-				<div className="col-sm-6">
+				{/* <div className="col-sm-6">
 					<h1>{book.book_name}</h1>
 					<h2>
 						Rating
@@ -125,20 +138,20 @@ function BookDetail() {
 					<button type="submit" className="btn btn-danger" onClick={deleteBook}>
 						Delete
 					</button>
-				</div>
+				</div> */}
 			</div>
 			<hr />
-			<h2>Discussion</h2>
+			<h2>Comments</h2>
 			<div className="row">
 				{posts}
 			</div>
 			<hr />
-			<h2>Got Your Own Rant or Rave?</h2>
+			{/* <h2>Got Your Own Rant or Rave?</h2> */}
 			<NewPost
 				book={book}
 				onSubmit={createPost}
 			/>
-		</main>
+		</div>
 	)
 }
 
