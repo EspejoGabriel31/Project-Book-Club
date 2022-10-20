@@ -81,7 +81,7 @@ const Navigation = () => {
             </div>
             */
         <div>
-            <Navbar bg="black" expand="md" className="me-auto"
+            <Navbar bg="black" expand="md" className="me-auto fixed-top"
                 style={{
                     justifyContent: "center",
                     backgroundColor: "#A0522D",
