@@ -83,19 +83,20 @@ export default function Registration() {
                                 value={(user.password)}
                                 onChange={e => setUser({ ...user, password: e.target.value })} />
                         </Form.Group>
+                        <Button style={{color: 'white'}} onClick={handleClose}>
+                            Close
+                        </Button>
+                        <Button 
+                            style={{color: 'white'}} 
+                            type="submit" 
+                            form="register" 
+                            onClick={handleClose}>
+                            Sign Up
+                        </Button>
                     </Form>
                 </Modal.Body>
                 <Modal.Footer>
-                    <Button style={{color: 'white'}} onClick={handleClose}>
-                        Close
-                    </Button>
-                    <Button 
-                        style={{color: 'white'}} 
-                        type="submit" 
-                        form="register" 
-                        onClick={handleClose}>
-                        Sign Up
-                    </Button>
+                    
                 </Modal.Footer>
             </Modal>
         </>
