@@ -1,5 +1,4 @@
 import React from 'react'
-import styles from './Hero.css'
 import './Hero.css'
 import {AiOutlineSearch} from 'react-icons/ai'
 
@@ -8,9 +7,9 @@ import {AiOutlineSearch} from 'react-icons/ai'
 
 const Hero = () => {
   return (
-    <div>Welcome to our book club!{styles.hero}
+    <div>Welcome to our book club!
     <form>
-        <div className={styles.hero}>
+        <div className>
             <label>Look up:  </label>
             <input type="text" placeholder='Novels, Manga, etc' />
             <button>Search</button>
@@ -26,3 +25,16 @@ const Hero = () => {
 }
 
 export default Hero
+
+/* <Form className="d-flex">
+              <Form.Control
+                type="search"
+                placeholder="Search"
+                className="me-2"
+                aria-label="Search"
+              />
+              <Button size="sm" variant="outline-primary">
+                Search
+              </Button>
+            </Form>
+ */

@@ -26,7 +26,9 @@ function BookDetail() {
 	}
 
 	function editBook() {
+
 		navigate(`/books/${book.book_id}/edit`)
+
 	}
 
 	async function deleteBook() {
@@ -37,18 +39,21 @@ function BookDetail() {
 	}
 
 	async function deletePost(deletedPost) {
+
 		await fetch(`http://localhost:7000/books/${book.book_id}/posts/${deletedPost.postId}`, {
+
 			method: 'DELETE'
 		})
 
 		setBook({
 			...book,
 			posts: book.posts
-				.filter(post => post.postId !== deletedPost.postId)
+				.filter(post => post.post_id !== deletedPost.post_id)
 		})
 	}
 
 	async function createPost(postAttributes) {
+
 		const response = await fetch(`http://localhost:7000/books/${book.book_id}/posts`, {
 			method: 'POST',
 			headers: {
@@ -96,7 +101,7 @@ function BookDetail() {
 		)
 		posts = book.posts.map(post => {
 			return (
-				<PostContainer key={post.postId} post={post} onDelete={() => deletePost(post)} />
+				<PostContainer key={post.post_id} post={post} onDelete={() => deletePost(post)} />
 			)
 		})
 	}
@@ -108,7 +113,7 @@ function BookDetail() {
 					<img style={{ maxWidth: 200 }} src={book.picture} alt={book.book_name} />
 				</div>
 				<div className="col-sm-6">
-					<h1>{book.name}</h1>
+					<h1>{book.book_name}</h1>
 					<h2>
 						Rating
 					</h2>

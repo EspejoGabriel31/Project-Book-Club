@@ -1,25 +1,26 @@
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
+import './Footer.css'
 
 export default function Footer() {
     return (
-            <Container className='fixed-bottom' fluid style={{backgroundColor: 'gray'}}>
-                <Row>
+            <Container className='fixed-bottom' fluid style={{backgroundColor: 'black'}}>
+                <Row id='footer-item'>
                     <Col>
-                        <a href='/about'>About Us </a>
+                        <a className='footer-link' href='/about'>About Us </a>
                     </Col>
                     <Col>
-                        <a href='#term' >Term Of Services </a>
+                        <a className='footer-link' href='#term' >Term Of Services </a>
                     </Col>
                     <Col>
-                        <a href='/contact'>Contact Us </a>
+                        <a className='footer-link' href='/contact'>Contact Us </a>
                     </Col>
                     <Col>
-                        <a href='#privacy'>Privacy </a>
+                        <a className='footer-link' href='#privacy'>Privacy </a>
                     </Col>
                     <Col>
-                        Copyright &copy; BookClub
+                        Copyright &copy; BookClub 2022
                     </Col>
                 </Row>
             </Container>

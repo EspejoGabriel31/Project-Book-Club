@@ -8,21 +8,21 @@ function NewPost({ book, onSubmit }) {
     const [post, setPost] = useState({
         content: '',
         stars: 3,
-        raterId: ''
+        post_id: ''
     })
 
     useEffect(() => {
         const fetchData = async () => {
             const response = await fetch(`http://localhost:7000/users`)
             const users = await response.json()
-            setPost({ ...post, raterId: users[0]?.userId})
+            setPost({ ...post, post_id: users[0]?.user_id})
             setRaters(users)
         }
         fetchData()
     }, [])
 
     let raterOptions = raters.map(rater => {
-        return <option key={rater.userId} value={rater.user_id}>{rater.first_name} {rater.last_name}</option>
+        return <option key={rater.user_id} value={rater.user_id}>{rater.first_name} {rater.last_name}</option>
     })
 
     function handleSubmit(e) {
@@ -31,7 +31,7 @@ function NewPost({ book, onSubmit }) {
         setPost({
             content: '',
             stars: 3,
-            raterId: raters[0]?.user_id
+            post_id: raters[0]?.user_id
         })
     }
 
@@ -53,7 +53,7 @@ function NewPost({ book, onSubmit }) {
             <div className="row">
                 <div className="form-group col-sm-4">
                     <label htmlFor="state">Author</label>
-                    <select className="form-control" value={comment.authorId} onChange={e => setComment({ ...comment, authorId: e.target.value })}>
+                    <select className="form-control" value={post.post_id} onChange={e => setPost({ ...post, post_id: e.target.value })}>
                         {raterOptions}
                     </select>
                 </div>
