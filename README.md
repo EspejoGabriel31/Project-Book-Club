@@ -18,7 +18,6 @@ PORT=7000
 DB_USERNAME='YOUR_USER_NAME'
 DB_PASSWORD='YOUR_PASSWORD'
 DB_DATABASE=book_club
-
 ```
 * Since the database run locally, you will also need to run `sequelize db:migrate`
 * Next, navigate to the __client__ folder and run `npm i` to install the dependencies for the _frontend_
