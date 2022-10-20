@@ -26,3 +26,16 @@ const Hero = () => {
 }
 
 export default Hero
+
+/* <Form className="d-flex">
+              <Form.Control
+                type="search"
+                placeholder="Search"
+                className="me-2"
+                aria-label="Search"
+              />
+              <Button size="sm" variant="outline-primary">
+                Search
+              </Button>
+            </Form>
+ */
