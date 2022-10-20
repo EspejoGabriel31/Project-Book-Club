@@ -12,7 +12,6 @@ router.post('/', async (req, res) => {
 
 //GET ALL Route Book
 router.get('/', async (req, res) => {
-    console.log("books")
     const books = await Book.findAll()
     res.json(books)
 })
@@ -43,8 +42,9 @@ router.get('/:book_id', async(req, res) => {
 //CREATE Route Posts
 router.post('/:book_id/posts', async (req, res) =>{
     const book_id = Number(req.params.book_id)
-    
-    req.body.comment =req.body.comment ? true : false
+    console.log(req.body)
+    // req.body.comment =req.body.comment ? true : false
+
     const book = await Book.findOne({
         where: { book_id: book_id}
     })
@@ -53,24 +53,25 @@ router.post('/:book_id/posts', async (req, res) =>{
         res.status(404).json({message: `Could not find book with id "${book_id}`})
     }
     
-    const author = await User.findOne({
+    const user = await User.findOne({
         where: {user_id: req.body.user_id}
     })
 
-    if(!author){
+    if(!user){
         res.status(404).json({message: `Could not find user with id "${user_id}`})
     }
-    // console.log("######################## author: ########################", author)
+
     const post = await Post.create({
         ...req.body,
         book_id: book_id
     })
-    // console.log("######################## POST: ########################\n", post)
     res.send({
         ...post.toJSON(),
-        author
+        user
     })
 
 })
+
+
 
 module.exports = router

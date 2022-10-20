@@ -14,7 +14,7 @@ function NewPost({ book, onSubmit }) {
         const fetchData = async () => {
             const response = await fetch(`http://localhost:7000/users`)
             const users = await response.json()
-            setPost({ ...post, post_id: users[0]?.user_id})
+            setPost({ ...post, user_id: users[0]?.user_id})
             setCommentors(users)
         }
         fetchData()
