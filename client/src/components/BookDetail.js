@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router"
 import PostContainer from "./PostContainer";
 import NewPost from "./NewPost";
+import './BookDetail.css'
 /* vvvvvvvv FIX THIS LATER vvvvvvvv */
 const poster1 = new URL("../pictures/100YearsOfSolitude1.jpg", import.meta.url)
 const poster2 = new URL("../pictures/ChainsawMan1.jpeg", import.meta.url)
@@ -109,6 +110,18 @@ function BookDetail() {
 			<div className="row">
 				<div>
 					<img src={eval('poster'+book_id)} alt={book.book_name} />
+					<div className="details">
+					<p>{book.book_name}</p>
+					</div>
+					<div className="moredets">
+						<p>Author:</p>
+						<p>{book.book_author}</p>
+				    </div>
+					<div className ="genre">
+						<p>Genre:</p>
+						<p>{book.genre}</p>
+
+					</div>
 				</div>
 			</div>
 			<hr />

@@ -1,0 +1,27 @@
+.details{
+    font-size: 350%;
+    font-weight: 400;
+    padding-left: 600px;
+    position: fixed;
+    text-align: center;
+    top: 140px;
+
+    
+}
+
+.moredets{
+    text-align: center;
+    font-size: 200%;
+    padding-left:700px;
+    position: fixed;
+    top: 280px;
+
+}
+
+.genre{
+    text-align: center;
+    font-size: 200%;
+    padding-left:650px;
+    position: fixed;
+    top: 480px;
+}
