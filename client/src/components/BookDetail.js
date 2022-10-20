@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import { useHistory, useParams } from "react-router"
+import PostContainer from "./PostContainer";
+import NewPost from "./NewPost";
 
 function BookDetail() {
 
