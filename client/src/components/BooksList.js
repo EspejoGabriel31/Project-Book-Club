@@ -20,7 +20,7 @@ export default function BookList(data) {
             <div className="bookContainer" key={book.bookId}>
                 <img style={{ maxWidth: 200 }} src={book.picture} alt={book.name} />
                 <h3>
-                    <a href="#" onClick={() => navigate(`/books/${book.bookId}`)}>
+                    <a href="#" onClick={() => navigate(`/books/${book.book_id}`)}>
                         {book.book_name}
                     </a>
                 </h3>
