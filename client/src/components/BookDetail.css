@@ -2,7 +2,7 @@
     font-size: 350%;
     font-weight: 400;
     padding-left: 600px;
-    position: fixed;
+    position: absolute;
     text-align: center;
     top: 140px;
 
@@ -13,7 +13,7 @@
     text-align: center;
     font-size: 200%;
     padding-left:700px;
-    position: fixed;
+    position: absolute;
     top: 280px;
 
 }
@@ -22,6 +22,6 @@
     text-align: center;
     font-size: 200%;
     padding-left:650px;
-    position: fixed;
+    position: absolute;
     top: 480px;
 }
