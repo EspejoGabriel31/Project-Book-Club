@@ -93,52 +93,21 @@ function BookDetail() {
 			No comments yet!
 		</h3>
 	)
-	let rating = (
-		<h3 className="inactive">
-			Not yet rated
-		</h3>
-	)
-	// if (book.posts.length) {
-	// 	let sumReview = book.posts.reduce((tot, c) => {
-	// 		return tot + c.stars
-	// 	}, 0)
-	// 	let avgReview = Math.round(sumReview / book.posts.length)
-	// 	let stars = ''
-	// 	for (let i = 0; i < avgReview; i++) {
-	// 		stars += '⭐️'
-	// 	}
-	// 	rating = (
-	// 		<h3>
-	// 			{stars} stars
-	// 		</h3>
-	// 	)
-	// 	posts = book.posts.map(post => {
-	// 		return (
-	// 			<PostContainer key={post.post_id} post={post} onDelete={() => deletePost(post)} />
-	// 		)
-	// 	})
-	// }
+
+	if (book.posts.length) {
+		posts = book.posts.map(post => {
+			return (
+				<PostContainer key={post.post_id} post={post} onDelete={() => deletePost(post)} />
+			)
+		})
+	}
 
 	return (
 		<div>
 			<div className="row">
-				<div className="col-sm-6">
-					<img style={{ maxWidth: 200 }} src={eval('poster'+book_id)} alt={book.book_name} />
+				<div>
+					<img src={eval('poster'+book_id)} alt={book.book_name} />
 				</div>
-				{/* <div className="col-sm-6">
-					<h1>{book.book_name}</h1>
-					<h2>
-						Rating
-					</h2>
-					{rating}
-					<br />
-					<a className="btn btn-warning" onClick={editBook}>
-						Edit
-					</a>{` `}
-					<button type="submit" className="btn btn-danger" onClick={deleteBook}>
-						Delete
-					</button>
-				</div> */}
 			</div>
 			<hr />
 			<h2>Comments</h2>
@@ -146,11 +115,7 @@ function BookDetail() {
 				{posts}
 			</div>
 			<hr />
-			{/* <h2>Got Your Own Rant or Rave?</h2> */}
-			<NewPost
-				book={book}
-				onSubmit={createPost}
-			/>
+			<NewPost book={book} onSubmit={createPost}/>
 		</div>
 	)
 }

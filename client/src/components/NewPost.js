@@ -3,7 +3,7 @@ import { useState, useEffect } from "react"
 
 function NewPost({ book, onSubmit }) {
 
-    const [raters, setRaters] = useState([])
+    const [commentors, setCommentors] = useState([])
 
     const [post, setPost] = useState({
         content: '',
@@ -16,12 +16,12 @@ function NewPost({ book, onSubmit }) {
             const response = await fetch(`http://localhost:7000/users`)
             const users = await response.json()
             setPost({ ...post, post_id: users[0]?.user_id})
-            setRaters(users)
+            setCommentors(users)
         }
         fetchData()
     }, [])
 
-    let raterOptions = raters.map(rater => {
+    let commentorOptions = commentors.map(rater => {
         return <option key={rater.user_id} value={rater.user_id}>{rater.first_name} {rater.last_name}</option>
     })
 
@@ -30,8 +30,7 @@ function NewPost({ book, onSubmit }) {
         onSubmit(post)
         setPost({
             content: '',
-            stars: 3,
-            post_id: raters[0]?.user_id
+            post_id: commentors[0]?.user_id
         })
     }
 
@@ -54,10 +53,10 @@ function NewPost({ book, onSubmit }) {
                 <div className="form-group col-sm-4">
                     <label htmlFor="state">Author</label>
                     <select className="form-control" value={post.post_id} onChange={e => setPost({ ...post, post_id: e.target.value })}>
-                        {raterOptions}
+                        {commentorOptions}
                     </select>
                 </div>
-                <div className="form-group col-sm-4">
+                {/* <div className="form-group col-sm-4">
                     <label htmlFor="stars">Star Rating</label>
                     <input
                         value={post.stars}
@@ -70,9 +69,12 @@ function NewPost({ book, onSubmit }) {
                         name="stars"
                         className="form-control"
                     />
+                </div> */}
+                <div className="form-group col-sm-4">
+                    <input className="btn btn-primary" type="submit" value="Add Post" />
                 </div>
             </div>
-            <input className="btn btn-primary" type="submit" value="Add Post" />
+            
         </form>
     )
 }
