@@ -90,7 +90,7 @@ export default function Registration() {
                     <Button style={{color: 'white'}} onClick={handleClose}>
                         Close
                     </Button>
-                    <Button style={{color: 'white'}} type="submit" form="register" >
+                    <Button style={{color: 'white'}} type="submit" form="register" onClick={handleClose}>
                         Sign Up
                     </Button>
                 </Modal.Footer>

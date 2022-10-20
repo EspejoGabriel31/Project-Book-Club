@@ -79,7 +79,7 @@ export default function Login() {
           <Button onClick={handleClose} style={{color: 'white'}}>
             Close
           </Button>
-          <Button onSubmit={handleClose} form="login"
+          <Button onClick={handleClose} form="login"
             type="submit"
             style={{color: 'white'}}
           >
