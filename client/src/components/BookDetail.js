@@ -123,7 +123,7 @@ function BookDetail() {
 		<div>
 			<div className="row">
 				<div className="col-sm-6">
-					<img style={{ maxWidth: 200 }} src={new URL(book.picture, import.meta.url)} alt={book.book_name} />
+					<img style={{ maxWidth: 200 }} src={eval('poster'+book_id)} alt={book.book_name} />
 				</div>
 				{/* <div className="col-sm-6">
 					<h1>{book.book_name}</h1>
