@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router"
-import PostContainer from "./PostContainer";
-import NewPost from "./NewPost";
+import PostContainer from "./posts/PostContainer";
+import NewPost from "./posts/NewPost";
 import './BookDetail.css'
 /* vvvvvvvv FIX THIS LATER vvvvvvvv */
 const poster1 = new URL("../pictures/100YearsOfSolitude1.jpg", import.meta.url)

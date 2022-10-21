@@ -1,10 +1,10 @@
 import {useEffect, useState} from 'react'
 import {useNavigate} from 'react-router'
 
-const poster1 = new URL("../pictures/100YearsOfSolitude1.jpg", import.meta.url)
-const poster2 = new URL("../pictures/ChainsawMan1.jpeg", import.meta.url)
-const poster3 = new URL("../pictures/ThingsFallApart.jpg", import.meta.url)
-const poster4 = new URL("../pictures/ThornBirds.jpg", import.meta.url)
+// const poster1 = new URL("../pictures/100YearsOfSolitude1.jpg", import.meta.url)
+// const poster2 = new URL("../pictures/ChainsawMan1.jpeg", import.meta.url)
+// const poster3 = new URL("../pictures/ThingsFallApart.jpg", import.meta.url)
+// const poster4 = new URL("../pictures/ThornBirds.jpg", import.meta.url)
 
 export default function BookList(data) {
     const navigate = useNavigate()

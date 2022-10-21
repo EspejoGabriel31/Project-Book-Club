@@ -1,7 +1,7 @@
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { useState, useContext } from 'react'
-import { CurrentUser } from '../contexts/CurrentUser';
+import { CurrentUser } from '../../contexts/CurrentUser';
 // import { useNavigate } from "react-router"
 import Modal from 'react-bootstrap/Modal';
 

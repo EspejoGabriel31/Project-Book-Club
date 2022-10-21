@@ -4,16 +4,16 @@ import './App.css';
 import Home from './Home.js';
 import Navigation from './components/Navbar.js';
 import Footer from './components/Footer.js'
-import Registration from './components/Registration.js';
-import Login from './components/Login.js';
-import BooksList from './components/BooksList.js'
+import Registration from './components/users/Registration.js';
+import Login from './components/users/Login.js';
+import BooksList from './components/books/BooksList.js'
 import CurrentUserProvider from './contexts/CurrentUser.js';
 import BookDetail from './components/BookDetail';
 import Find from './components/Find'
 import Error404 from './Error404';
 
 function App() {
-  const [data, setData] = useState(null);
+//   const [data, setData] = useState(null);
 
 //   useEffect(() => {
 //     fetch('/api')

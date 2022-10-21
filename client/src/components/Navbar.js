@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useContext } from 'react'
 import { useNavigate } from "react-router"
 import { CurrentUser } from '../contexts/CurrentUser';
-import Registration from './Registration';
-import Login from './Login'
+import Registration from './users/Registration';
+import Login from './users/Login'
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
