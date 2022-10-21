@@ -39,6 +39,7 @@ SQL database with NodeJS following with its Express framework
 * __Footer__ with links navigate to each component in order to show corresponding information
 * `CRUD` operation (Updating) for post need to be added
 * `Replying to post` needed to be implemented
+* `CRUD` operations for book need to be added
 ___
 
 ### Contributors
