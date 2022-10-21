@@ -24,26 +24,12 @@ const Navigation = () => {
             <Nav.Link href="">
                 <Registration />
             </Nav.Link>
-            {/* <li className='nav-item'>
-                
-            </li>
-            <li className='nav-item'>
-                
-            </li> */}
         </>
     )
 
     if (currentUser) {
         let username = currentUser.first_name + ' ' + currentUser.last_name
         loginActions = (
-            // <>
-            //     <li className='nav-item'>
-            //         {currentUser.first_name} {currentUser.last_name}
-            //     </li>
-            //     <li className='nav-item'>
-            //         <button href="#" onClick={logout}>Logout</button>
-            //     </li>
-            // </>
             <NavDropdown title={username} id="navDrop">
                 <NavDropdown.Item>
                 <button href="#" onClick={logout}>Logout</button>
