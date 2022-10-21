@@ -31,10 +31,10 @@ const Navigation = () => {
         loginActions = (
             <>
                 <li className='nav-item'>
-                    Logged in as {currentUser.first_name} {currentUser.last_name}
+                    {currentUser.first_name} {currentUser.last_name}
                 </li>
                 <li className='nav-item'>
-                    <a href="#" onClick={logout}>Logout</a>
+                    <button href="#" onClick={logout}>Logout</button>
                 </li>
             </>
 

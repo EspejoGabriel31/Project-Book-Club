@@ -83,12 +83,14 @@
 .nav-item {
    display: inline-block;
    margin-left: 20px;
+   font-size: 1.4rem;
+   color:#c6c6c6;
 }
 
 button {
     all: unset;
     font-size: 1.4rem;
-    color:#c6c6c6;
+    
 }
 #navLink, #navDrop{
     font-size: 1.4rem;

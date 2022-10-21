@@ -74,17 +74,7 @@ export default function Login() {
                                 value={(account.password)}
                                 onChange={e => setAccount({ ...account, password: e.target.value })} />
                         </Form.Group>
-                        <Button
-                            onClick={handleSubmit}
-                            form="login"
-                            type="submit"
-                            style={{color: 'white'}}
-                        >
-                            Sign In
-                        </Button>
-                        <Button onClick={handleClose} style={{ color: 'white' }}>
-                            Close
-                        </Button>
+                        
                         
                     </Form>
                 </Modal.Body>
@@ -98,7 +88,17 @@ export default function Login() {
                         )
                         : null
                     }
-                    
+                    <Button
+                        onClick={handleSubmit}
+                        form="login"
+                        type="submit"
+                        style={{color: 'white'}}
+                    >
+                        Sign In
+                    </Button>
+                    <Button onClick={handleClose} style={{ color: 'white' }}>
+                        Close
+                    </Button>
                 </Modal.Footer>
             </Modal>
         </>
