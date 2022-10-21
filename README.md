@@ -37,6 +37,8 @@ SQL database with NodeJS following with its Express framework
 * Search bar 
 * __Genres__ dropdown in navigation bar with each element link to each genre
 * __Footer__ with links navigate to each component in order to show corresponding information
+* `CRUD` operation (Updating) for post need to be added
+* `Replying to post` needed to be implemented
 ___
 
 ### Contributors
