@@ -96,8 +96,8 @@ const Navigation = () => {
                     <Navbar.Toggle aria-controls="navbarScroll"/>
                     <Navbar.Collapse id="navbarScroll">
                         <Nav className="flex-grow-1 justify-content-evenly" >
-                            <Nav.Link id='navLink' href="/" >New Releases</Nav.Link>
-                            <Nav.Link id='navLink' href="/books" >Reviews</Nav.Link>
+                            <Nav.Link id='navLink' href="/books" >New Releases</Nav.Link>
+                            <Nav.Link id='navLink' href="/" >Reviews</Nav.Link>
                             <NavDropdown title="Genres" id="navDrop" >
                                 <NavDropdown.Item href="/">Fantasy</NavDropdown.Item>
                                 <NavDropdown.Item href="/">Comedy</NavDropdown.Item>
