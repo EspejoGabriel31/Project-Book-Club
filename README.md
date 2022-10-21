@@ -33,6 +33,10 @@ The frontend of this application is made with ReactJS.
 
 SQL database with NodeJS following with its Express framework
 
+### Unfinished functionality
+* Search bar 
+* __Genres__ dropdown in navigation bar with each element link to each genre
+* __Footer__ with links navigate to each component in order to show corresponding information
 ___
 
 ### Contributors
