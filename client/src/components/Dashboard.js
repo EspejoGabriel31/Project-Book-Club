@@ -1,7 +1,7 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
 import './Dashboard.css'
-import styles from './Dashboard.css'
+// import styles from './Dashboard.css'
 
 const poster = new URL("../pictures/100YearsOfSolitude1.jpg", import.meta.url)
 const poster2 = new URL("../pictures/ChainsawMan1.jpeg", import.meta.url)

@@ -24,7 +24,7 @@ export default function Login() {
 
     async function handleSubmit(e) {
         e.preventDefault()
-        console.log(e)
+        // console.log(account)
         const response = await fetch(`http://localhost:7000/authentication/`, {
             method: 'POST',
             headers: {
@@ -52,7 +52,7 @@ export default function Login() {
                     <Modal.Title style={{ color: '#0059ff' }}>Sign In</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <Form id="login" onSubmit={handleSubmit}> {/* onSubmit on Form needs to be handleSubmit */}
+                    <Form id="login"> {/* onSubmit on Form needs to be handleSubmit  onSubmit={handleSubmit}*/}
                         <Form.Group className="mb-3" controlId="loginEmail">
                             <Form.Label>Email address</Form.Label>
                             <Form.Control
@@ -74,17 +74,18 @@ export default function Login() {
                                 value={(account.password)}
                                 onChange={e => setAccount({ ...account, password: e.target.value })} />
                         </Form.Group>
-                        <Button onClick={handleClose} style={{ color: 'white' }}>
-                            Close
-                        </Button>
                         <Button
-                            onClick={handleClose}
+                            onClick={handleSubmit}
                             form="login"
                             type="submit"
                             style={{color: 'white'}}
                         >
                             Sign In
                         </Button>
+                        <Button onClick={handleClose} style={{ color: 'white' }}>
+                            Close
+                        </Button>
+                        
                     </Form>
                 </Modal.Body>
                 <Modal.Footer>
