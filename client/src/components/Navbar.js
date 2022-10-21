@@ -18,25 +18,37 @@ const Navigation = () => {
 
     let loginActions = (
         <>
-            <li className='nav-item'>
+            <Nav.Link href=""> 
                 <Login />
+            </Nav.Link>
+            <Nav.Link href="">
+                <Registration />
+            </Nav.Link>
+            {/* <li className='nav-item'>
+                
             </li>
             <li className='nav-item'>
-                <Registration />
-            </li>
+                
+            </li> */}
         </>
     )
 
     if (currentUser) {
+        let username = currentUser.first_name + ' ' + currentUser.last_name
         loginActions = (
-            <>
-                <li className='nav-item'>
-                    {currentUser.first_name} {currentUser.last_name}
-                </li>
-                <li className='nav-item'>
-                    <button href="#" onClick={logout}>Logout</button>
-                </li>
-            </>
+            // <>
+            //     <li className='nav-item'>
+            //         {currentUser.first_name} {currentUser.last_name}
+            //     </li>
+            //     <li className='nav-item'>
+            //         <button href="#" onClick={logout}>Logout</button>
+            //     </li>
+            // </>
+            <NavDropdown title={username} id="navDrop">
+                <NavDropdown.Item>
+                <button href="#" onClick={logout}>Logout</button>
+                </NavDropdown.Item>
+            </NavDropdown>
 
         )
     }
@@ -48,7 +60,46 @@ const Navigation = () => {
     }
 
     return (
-        /*
+        
+        <div>
+            <Navbar bg="black" expand="md" className="me-auto fixed-top"
+                style={{
+                    justifyContent: "center",
+                    backgroundColor: "#A0522D",
+                    height: "150px",
+                    sticky: "top"
+                }}>
+                <Container fluid>
+                    <Navbar.Brand href="/" id='logo'>
+                        <img className="me-auto" alt="logo" src={Logo} />
+                        East of Reading
+                    </Navbar.Brand>
+                    <Navbar.Toggle aria-controls="navbarScroll"/>
+                    <Navbar.Collapse id="navbarScroll">
+                        <Nav className="flex-grow-1 justify-content-evenly" >
+                            <Nav.Link id='navLink' href="/books" >New Releases</Nav.Link>
+                            <Nav.Link id='navLink' href="/" >Reviews</Nav.Link>
+                            <NavDropdown title="Genres" id="navDrop" >
+                                <NavDropdown.Item href="/">Fantasy</NavDropdown.Item>
+                                <NavDropdown.Item href="/">Comedy</NavDropdown.Item>
+                                <NavDropdown.Item href="/">Fiction</NavDropdown.Item>
+                                <NavDropdown.Item href="/">Romance</NavDropdown.Item>
+                                <NavDropdown.Item href="/">Memoir</NavDropdown.Item>
+                                <NavDropdown.Item href="/">Literature</NavDropdown.Item>
+                            </NavDropdown>
+                            {loginActions}
+                            
+                        </Nav>
+                    </Navbar.Collapse>
+                </Container>
+            </Navbar>
+        </div>
+    )
+}
+
+export default Navigation
+
+/*
         <div className= 'navbar'>
         <div className= "container">
                 <a 
@@ -80,39 +131,3 @@ const Navigation = () => {
                 </div>
             </div>
             */
-        <div>
-            <Navbar bg="black" expand="md" className="me-auto fixed-top"
-                style={{
-                    justifyContent: "center",
-                    backgroundColor: "#A0522D",
-                    height: "150px",
-                    sticky: "top"
-                }}>
-                <Container fluid>
-                    <Navbar.Brand href="/" id='logo'>
-                        <img className="me-auto" alt="logo" src={Logo} />
-                        East of Reading
-                    </Navbar.Brand>
-                    <Navbar.Toggle aria-controls="navbarScroll"/>
-                    <Navbar.Collapse id="navbarScroll">
-                        <Nav className="flex-grow-1 justify-content-evenly" >
-                            <Nav.Link id='navLink' href="/books" >New Releases</Nav.Link>
-                            <Nav.Link id='navLink' href="/" >Reviews</Nav.Link>
-                            <NavDropdown title="Genres" id="navDrop" >
-                                <NavDropdown.Item href="/">Fantasy</NavDropdown.Item>
-                                <NavDropdown.Item href="/">Comedy</NavDropdown.Item>
-                                <NavDropdown.Item href="/">Fiction</NavDropdown.Item>
-                                <NavDropdown.Item href="/">Romance</NavDropdown.Item>
-                                <NavDropdown.Item href="/">Memoir</NavDropdown.Item>
-                                <NavDropdown.Item href="/">Literature</NavDropdown.Item>
-                            </NavDropdown>
-                            <Nav.Link href="">{loginActions} </Nav.Link>
-                        </Nav>
-                    </Navbar.Collapse>
-                </Container>
-            </Navbar>
-        </div>
-    )
-}
-
-export default Navigation
