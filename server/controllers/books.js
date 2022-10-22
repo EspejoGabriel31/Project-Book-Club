@@ -1,4 +1,5 @@
 const router = require('express').Router()
+const jwt= require('json-web-token')
 const db = require('../models')
 
 const {Book, Post, User} = db
@@ -53,21 +54,37 @@ router.post('/:book_id/posts', async (req, res) =>{
         res.status(404).json({message: `Could not find book with id "${book_id}`})
     }
     
-    const user = await User.findOne({
-        where: {user_id: req.body.user_id}
-    })
-
-    if(!user){
-        res.status(404).json({message: `Could not find user with id "${user_id}`})
+    let currentUser
+    try{
+        const [method, token] = req.headers.authorization.split(' ')
+        if (method == 'Bearer'){
+            const result = await jwt.decode(process.env.JWT_SECRET, token) 
+            const { id } = result.value
+            currentUser = await User.findOne({
+                where: {
+                    user_id: id
+                }
+            })
+        }
+    } catch{
+        currentUser = null
     }
+    // const user = await User.findOne({
+    //     where: {user_id: req.body.user_id}
+    // })
+
+    // if(!user){
+    //     res.status(404).json({message: `Could not find user with id "${user_id}`})
+    // }
 
     const post = await Post.create({
         ...req.body,
+        user_id: currentUser.user_id,
         book_id: book_id
     })
     res.send({
         ...post.toJSON(),
-        user
+        currentUser
     })
 
 })
