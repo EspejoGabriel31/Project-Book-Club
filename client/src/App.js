@@ -11,6 +11,8 @@ import CurrentUserProvider from './contexts/CurrentUser.js';
 import BookDetail from './components/books/BookDetail';
 import Find from './components/Find'
 import Error404 from './Error404';
+import About from '../src/components/footers/about'
+import Contact from '../src/components/footers/contact'
 
 function App() {
 //   const [data, setData] = useState(null);
@@ -27,7 +29,6 @@ function App() {
       <BrowserRouter>
         <Navigation />
         
-        
         <main>
         <Routes>
           <Route path="/" element={<Home/>}/>
@@ -35,6 +36,8 @@ function App() {
           <Route path="/books/:book_id" element={<BookDetail/>}/>
           <Route path="/registration" element={<Registration/>}/>
           <Route path="/login" element={<Login/>}/>
+          <Route path="/about" element={<About/>}/>
+          <Route path="/contact" element={<Contact/>}/>
           <Route path="*" element={<Error404/>}/>
         </Routes>
         </main>
