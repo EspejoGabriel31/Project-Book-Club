@@ -24,6 +24,7 @@ export default function BookList(data) {
         return (
             <div className="bookContainer" key={book.book_id}>
                 {/* <img style={{ maxWidth: 200 }} src={new URL(book.picture, import.meta.url)} alt={book.book_name} /> */}
+                
                 <h3>
                     <a href="#" onClick={() => navigate(`/books/${book.book_id}`)}>
                         {book.book_name}
@@ -33,6 +34,9 @@ export default function BookList(data) {
                 <p>
 					{book.genre}
 				</p>
+                
+                
+                <hr/>
             </div>
         )
     })
