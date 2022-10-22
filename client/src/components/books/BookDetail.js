@@ -1,21 +1,21 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router"
-import PostContainer from "./posts/PostContainer";
-import NewPost from "./posts/NewPost";
+import PostContainer from "../posts/PostContainer";
+import NewPost from "../posts/NewPost";
 import './BookDetail.css'
 /* vvvvvvvv FIX THIS LATER vvvvvvvv */
-const poster1 = new URL("../pictures/100YearsOfSolitude1.jpg", import.meta.url)
-const poster2 = new URL("../pictures/ChainsawMan1.jpeg", import.meta.url)
-const poster3 = new URL("../pictures/MarriageToxin1.jpg", import.meta.url)
-const poster4 = new URL("../pictures/EastOfEden1.jpg", import.meta.url)
-const poster5 = new URL("../pictures/SpyFamily2.jpeg", import.meta.url)
-const poster6 = new URL("../pictures/Mother of Learning.jpg", import.meta.url)
-const poster7 = new URL("../pictures/Hero3.jpg", import.meta.url)
-const poster8 = new URL("../pictures/PeopleOfOstrichMountain.jpg", import.meta.url)
-const poster9 = new URL("../pictures/ThingsFallApart.jpg", import.meta.url)
-const poster10 = new URL("../pictures/ThornBirds.jpg", import.meta.url)
-const poster11 = new URL("../pictures/Unbowed.jpg", import.meta.url)
-const poster12 = new URL("../pictures/UncleTomCabin2.jpg", import.meta.url)
+const poster1 = new URL("../../pictures/100YearsOfSolitude1.jpg", import.meta.url)
+const poster2 = new URL("../../pictures/ChainsawMan1.jpeg", import.meta.url)
+const poster3 = new URL("../../pictures/MarriageToxin1.jpg", import.meta.url)
+const poster4 = new URL("../../pictures/EastOfEden1.jpg", import.meta.url)
+const poster5 = new URL("../../pictures/SpyFamily2.jpeg", import.meta.url)
+const poster6 = new URL("../../pictures/Mother of Learning.jpg", import.meta.url)
+const poster7 = new URL("../../pictures/Hero3.jpg", import.meta.url)
+const poster8 = new URL("../../pictures/PeopleOfOstrichMountain.jpg", import.meta.url)
+const poster9 = new URL("../../pictures/ThingsFallApart.jpg", import.meta.url)
+const poster10 = new URL("../../pictures/ThornBirds.jpg", import.meta.url)
+const poster11 = new URL("../../pictures/Unbowed.jpg", import.meta.url)
+const poster12 = new URL("../../pictures/UncleTomCabin2.jpg", import.meta.url)
 
 function BookDetail() {
 
@@ -114,7 +114,7 @@ function BookDetail() {
             <hr></hr>
             <div className="row">
                 <div className="col-6">
-                    <img className="book-image" src={eval('poster' + book_id)} alt={book.book_name} />
+                    <img className="book-image" src={book.picture} alt={book.book_name} />
                 </div>
                 <div className="col-6">    
                     <div className="book-title">

@@ -8,7 +8,7 @@ import Registration from './components/users/Registration.js';
 import Login from './components/users/Login.js';
 import BooksList from './components/books/BooksList.js'
 import CurrentUserProvider from './contexts/CurrentUser.js';
-import BookDetail from './components/BookDetail';
+import BookDetail from './components/books/BookDetail';
 import Find from './components/Find'
 import Error404 from './Error404';
 
