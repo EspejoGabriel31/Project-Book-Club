@@ -30,7 +30,7 @@ const Find = () => {
     <div className={styles.find}>
       <div className={styles.heading}>
         <h1>Find your club!</h1>
-        <div className={styles.text_bg}>
+        <div className="bg">
           <p>
             <span>Explore the different genres</span>
           </p>
@@ -40,7 +40,7 @@ const Find = () => {
         <Swiper
           // install Swiper modules
           modules={[Navigation, Pagination, Scrollbar, A11y]}
-          spaceBetween={10}
+          spaceBetween={5}
           slidesPerView={5}
           navigation
           breakpoints={{

@@ -22,6 +22,7 @@ DB_DATABASE=book_club
 ```
 * Since the database run locally, you will also need to run `sequelize db:migrate`
 * Next, navigate to the __client__ folder and run `npm i` to install the dependencies for the _frontend_
+* Then, run npm i swiper in the same folder to utilize the Swiper React Components.  More info about it's usage is found at https://swiperjs.com/react
 * Finally, run `npm start` inside the __client__ folder; and run `node server.js` inside the __server__ folder to get the app run.
 
 
