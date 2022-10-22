@@ -20,7 +20,7 @@ export default function Registration() {
     })
 
     async function handleSubmit(e) {
-        console.log('does something')
+        // console.log('does something')
         e.preventDefault()
         console.log(user)
         await fetch(`http://localhost:7000/users/`, {
@@ -30,6 +30,7 @@ export default function Registration() {
             },
             body: JSON.stringify(user)
         })
+        handleClose()
     }
     return (
         <>
@@ -39,7 +40,7 @@ export default function Registration() {
                     <Modal.Title style={{color: '#0059ff'}}>Sign Up</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <Form onSubmit={handleSubmit} id="register"> {/* onSubmit on Form needs to be handleSubmit */}
+                    <Form  id="register"> {/* onSubmit on Form needs to be handleSubmitonSubmit={handleSubmit} */}
                         <Form.Group className="mb-3" controlId="first_name">
                             <Form.Label>First name</Form.Label>
                             <Form.Control
@@ -90,7 +91,7 @@ export default function Registration() {
                             style={{color: 'white'}} 
                             type="submit" 
                             form="register" 
-                            onClick={handleClose}>
+                            onClick={handleSubmit}>
                             Sign Up
                         </Button>
                     </Form>

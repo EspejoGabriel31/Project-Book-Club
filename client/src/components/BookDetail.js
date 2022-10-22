@@ -54,7 +54,7 @@ function BookDetail() {
 
 	async function deletePost(deletedPost) {
 
-		await fetch(`http://localhost:7000/books/${book.book_id}/posts/${deletedPost.postId}`, {
+		await fetch(`http://localhost:7000/books/${book.book_id}/posts/${deletedPost.post_id}`, {
 
 			method: 'DELETE'
 		})

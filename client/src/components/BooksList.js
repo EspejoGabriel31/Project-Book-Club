@@ -30,7 +30,7 @@ export default function BookList(data) {
                     </a>
                 </h3>
                 <h4>{book.book_author}</h4>
-                <p className="text-center">
+                <p>
 					{book.genre}
 				</p>
             </div>
@@ -39,7 +39,7 @@ export default function BookList(data) {
     return (
         <div>
             <h1> 
-                Recently Rating Books
+                Recently Added Books
             </h1>
             <div>
                 {booksListing}
