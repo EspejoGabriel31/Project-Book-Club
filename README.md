@@ -19,6 +19,7 @@ PORT=7000
 DB_USERNAME='YOUR_USER_NAME'
 DB_PASSWORD='YOUR_PASSWORD'
 DB_DATABASE=book_club
+JWT_SECRET=qiweuxhoiuehqmie
 ```
 * Since the database run locally, you will also need to run `sequelize db:migrate`
 * Next, navigate to the __client__ folder and run `npm i` to install the dependencies for the _frontend_
@@ -32,12 +33,14 @@ The frontend of this application is made with ReactJS.
 
 ### Backend
 
-SQL database with NodeJS following with its Express framework
+SQL database with NodeJS following with its Express framework.
+
+NB:
+Attributes (Andrew Wokabi) - Part of npx creation and base book_club de-coupled architecture adds and omits. Built and edited PostreSQL table with one to many relation optimized on cli. Added, deleted and edited config files, seeders, procfile and used the Sequelize ORM. 
 
 ### Unfinished functionality
 * Search bar 
 * __Genres__ dropdown in navigation bar with each element link to each genre
-* __Footer__ with links navigate to each component in order to show corresponding information
 * `CRUD` operation (Updating) for post need to be added
 * `Replying to post` needed to be implemented
 * `CRUD` operations for book need to be added
