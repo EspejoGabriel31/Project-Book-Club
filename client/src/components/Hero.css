@@ -30,6 +30,7 @@
  .hero-text button {
     font-size: 100%;
     border: none;
+    border-radius: 12px;
     outline: 0;
     display: inline-block;
     padding: 10px 25px;
@@ -37,4 +38,8 @@
     background-color: #ddd;
     text-align: center;
     cursor: pointer;
+  }
+
+  .hero-search-bar{
+    border-radius: 12px;
   }

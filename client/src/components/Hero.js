@@ -9,7 +9,7 @@ const Hero = () => {
         <div className="banner">
             <div className="hero-text">
                 <label>Look up:  </label>
-                <input type="text" placeholder='Novels, Manga, etc' />
+                <input type="text" className='hero-search-bar' placeholder='  Novels, Manga, etc' />
                 <p>   </p> 
                 <button>Search</button>
             </div>    
