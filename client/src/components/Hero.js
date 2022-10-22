@@ -10,6 +10,7 @@ const Hero = () => {
             <div className="hero-text">
                 <label>Look up:  </label>
                 <input type="text" placeholder='Novels, Manga, etc' />
+                <p>   </p> 
                 <button>Search</button>
             </div>    
         </div>

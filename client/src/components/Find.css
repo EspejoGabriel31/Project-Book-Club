@@ -2,8 +2,11 @@ h1{
     text-align: center;   
 }
 
-p{
-    text-align: center;   
+.bg{
+    text-align: center;  
+    font-size: 1.3rem;
+   
+    margin-top: -0.6rem; 
 }
 .find {
     max-width: 1040px;
@@ -20,27 +23,11 @@ p{
     text-align: center;
   }
   
-  .text_bg {
-    background: rgba(173, 199, 255, 0.502);
-    height: 30px;
-    max-width: 650px;
-    margin: auto;
-    position: absolute;
-  
-    margin-left: auto;
-    margin-right: auto;
-    left: 0;
-    right: 0;
-  }
-  
-  .text_bg p {
-    font-size: 1.4rem;
-    font-weight: 600;
-    margin-top: -0.6rem;
-  }
   
   .slider_container {
     padding: 5rem 0;
+    height: 150%;
+    width: 150%;
   }
   
   
@@ -51,10 +38,11 @@ p{
   }
   
   .card img {
-    width: 100%;
+  
+    width: 150%;
     border-top-left-radius: 50px;
     border-top-right-radius: 50px;
-    height: 220px;
+    height: 220%;
     object-fit: cover;
   }
   
