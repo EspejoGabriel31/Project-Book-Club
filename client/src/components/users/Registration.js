@@ -1,7 +1,6 @@
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { useState } from 'react'
-// import { useNavigate } from "react-router"
 import Modal from 'react-bootstrap/Modal';
 
 export default function Registration() {
@@ -9,8 +8,6 @@ export default function Registration() {
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
-
-    // const navigate = useNavigate()
 
     const [user, setUser] = useState({
         first_name: '',
@@ -20,7 +17,6 @@ export default function Registration() {
     })
 
     async function handleSubmit(e) {
-        // console.log('does something')
         e.preventDefault()
         console.log(user)
         await fetch(`http://localhost:7000/users/`, {
@@ -40,7 +36,7 @@ export default function Registration() {
                     <Modal.Title style={{color: '#0059ff'}}>Sign Up</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <Form  id="register"> {/* onSubmit on Form needs to be handleSubmitonSubmit={handleSubmit} */}
+                    <Form  id="register"> 
                         <Form.Group className="mb-3" controlId="first_name">
                             <Form.Label>First name</Form.Label>
                             <Form.Control
