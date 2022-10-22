@@ -3,7 +3,7 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const cors = require('cors')
 const path = require('path')
-// const cookieSession = require('cookie-session')
+const defineCurrentUser = require('./middleware/defineCurrentUser')
 
 const PORT = process.env.PORT || 7000
 const app = express()
@@ -14,6 +14,7 @@ app.use(cors())
 app.use(express.static('public'))
 app.use(express.urlencoded({ extended: true}))
 app.use(bodyParser.json())
+app.use(defineCurrentUser)
 
 app.use(express.static(path.resolve(__dirname, '../client/build')))
 

@@ -43,9 +43,6 @@ router.get('/:book_id', async(req, res) => {
 //CREATE Route Posts
 router.post('/:book_id/posts', async (req, res) =>{
     const book_id = Number(req.params.book_id)
-    console.log(req.body)
-    // req.body.comment =req.body.comment ? true : false
-
     const book = await Book.findOne({
         where: { book_id: book_id}
     })
@@ -53,38 +50,22 @@ router.post('/:book_id/posts', async (req, res) =>{
     if (!book) {
         res.status(404).json({message: `Could not find book with id "${book_id}`})
     }
-    
-    let currentUser
-    try{
-        const [method, token] = req.headers.authorization.split(' ')
-        if (method == 'Bearer'){
-            const result = await jwt.decode(process.env.JWT_SECRET, token) 
-            const { id } = result.value
-            currentUser = await User.findOne({
-                where: {
-                    user_id: id
-                }
-            })
-        }
-    } catch{
-        currentUser = null
-    }
-    // const user = await User.findOne({
-    //     where: {user_id: req.body.user_id}
-    // })
 
-    // if(!user){
-    //     res.status(404).json({message: `Could not find user with id "${user_id}`})
-    // }
+    if(!req.currentUser){
+        return res.status(404).json({
+            message: `You must be logged in to post`
+        })
+    }
 
     const post = await Post.create({
         ...req.body,
-        user_id: currentUser.user_id,
+        user_id: req.currentUser.user_id,
         book_id: book_id
     })
+    
     res.send({
         ...post.toJSON(),
-        currentUser
+        user: req.currentUser
     })
 
 })
@@ -105,6 +86,11 @@ router.delete('/:book_id/posts/:post_id', async (req,res) =>{
         })
         if(!post){
             res.status(404).json({ message: `Could not find post with id "${post_id}" for book with id ${book_id}`})
+        }
+        else if (post.user_id !== req.currentUser?.user_id){
+            res.status(403).json({
+                message: `You do not have permission to delete post "${post.post_id}`
+            })
         }
         else{
             await post.destroy()

@@ -19,124 +19,130 @@ const poster12 = new URL("../pictures/UncleTomCabin2.jpg", import.meta.url)
 
 function BookDetail() {
 
-	const { book_id } = useParams()
+    const { book_id } = useParams()
 
-	// const navigate = useNavigate()
+    // const navigate = useNavigate()
 
-	const [book, setBook] = useState(null)
+    const [book, setBook] = useState(null)
 
-	useEffect(() => {
-		const getBook = async () => {
-			const response = await fetch(`http://localhost:7000/books/${book_id}`)
-			const resData = await response.json()
-			console.log(resData)
-			setBook(resData)
-		}
-		getBook()
-	}, [book_id])
+    useEffect(() => {
+        const getBook = async () => {
+            const response = await fetch(`http://localhost:7000/books/${book_id}`)
+            const resData = await response.json()
+            console.log(resData)
+            setBook(resData)
+        }
+        getBook()
+    }, [book_id])
 
-	if (book === null) {
-		return <h1>Loading</h1>
-	}
+    if (book === null) {
+        return <h1>Loading</h1>
+    }
 
-	// function editBook() {
+    // function editBook() {
 
-	// 	navigate(`/books/${book.book_id}/edit`)
+    // 	navigate(`/books/${book.book_id}/edit`)
 
-	// }
+    // }
 
-	// async function deleteBook() {
-	// 	await fetch(`http://localhost:7000/books/${book.book_id}`, {
-	// 		method: 'DELETE'
-	// 	})
-	// 	navigate('/books')
-	// }
+    // async function deleteBook() {
+    // 	await fetch(`http://localhost:7000/books/${book.book_id}`, {
+    // 		method: 'DELETE'
+    // 	})
+    // 	navigate('/books')
+    // }
 
-	async function deletePost(deletedPost) {
+    async function deletePost(deletedPost) {
 
-		await fetch(`http://localhost:7000/books/${book.book_id}/posts/${deletedPost.post_id}`, {
+        await fetch(`http://localhost:7000/books/${book.book_id}/posts/${deletedPost.post_id}`, {
+            method: 'DELETE',
+            headers: {
+                'Authorization': `Bearer ${localStorage.getItem('token')}`
+            }
+        })
 
-			method: 'DELETE'
-		})
+        setBook({
+            ...book,
+            posts: book.posts
+                .filter(post => post.post_id !== deletedPost.post_id)
+        })
+    }
 
-		setBook({
-			...book,
-			posts: book.posts
-				.filter(post => post.post_id !== deletedPost.post_id)
-		})
-	}
-
-	async function createPost(postAttributes) {
+    async function createPost(postAttributes) {
         console.log('post attributes:\n', postAttributes)
-		const response = await fetch(`http://localhost:7000/books/${book.book_id}/posts`, {
-			method: 'POST',
-			headers: {
-				'Content-Type': 'application/json'
-			},
-			body: JSON.stringify(postAttributes)
-		})
-        
-		const post = await response.json()
-        
-		setBook({
-			...book,
-			posts: [
-				...book.posts,
-				post
-			]
-		})
+        const response = await fetch(`http://localhost:7000/books/${book.book_id}/posts`, {
+            method: 'POST',
+            headers: {
+                'Authorization': `Bearer ${localStorage.getItem('token')}`,
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(postAttributes)
+        })
 
-	}
+        const post = await response.json()
+
+        setBook({
+            ...book,
+            posts: [
+                ...book.posts,
+                post
+            ]
+        })
+
+    }
 
 
-	let posts = (
-		<h3 className="inactive">
-			No comments yet!
-		</h3>
-	)
+    let posts = (
+        <h3 className="inactive">
+            No comments yet!
+        </h3>
+    )
 
-	if (book.posts.length) {
-		posts = book.posts.map(post => {
+    if (book.posts.length) {
+        posts = book.posts.map(post => {
             console.log(post)
-			return (
-				<PostContainer key={post.post_id} post={post} 
-                onDelete={() => deletePost(post)} 
+            return (
+                <PostContainer key={post.post_id} post={post}
+                    onDelete={() => deletePost(post)}
                 />
-			)
-		})
-	}
+            )
+        })
+    }
 
-	return (
-		<div>
-			<div className="row">
-				<div>
-					<img src={eval('poster'+book_id)} alt={book.book_name} />
-					<div className="details">
-					<p>{book.book_name}</p>
-					</div>
-					<div className="moredets">
-						<p>Author:</p>
-						<p>{book.book_author}</p>
-				    </div>
-					<div className ="genre">
-						<p>Genre:</p>
-						<p>{book.genre}</p>
-
-					</div>
-				</div>
-			</div>
-			<hr />
-			<h2>Comments</h2>
-			<div className="row">
-				{posts}
-			</div>
-			<hr />
-			<NewPost 
-                book={book} 
-                onSubmit={createPost}
-            />
-		</div>
-	)
+    return (
+        <div className="book-detail-page">
+            <hr></hr>
+            <div className="row">
+                <div className="col-6">
+                    <img className="book-image" src={eval('poster' + book_id)} alt={book.book_name} />
+                </div>
+                <div className="col-6">    
+                    <div className="book-title">
+                        <p>{book.book_name}</p>
+                    </div>
+                    <div className="book-author">
+                        <strong><p>Author:</p></strong>
+                        <p>{book.book_author}</p>
+                    </div>
+                    <div className="book-genre">
+                        <strong><p>Genre:</p></strong>
+                        <p>{book.genre}</p>
+                    </div>
+                    <div className="book-synopsis">
+                        <strong><p>Synopsis</p></strong>
+                        <p>To be added...</p>
+                    </div>
+                </div>
+            </div>
+            <hr />
+            <h2>Comments</h2>
+            <div className="row">
+                {posts}
+            </div>
+            <hr />
+            <NewPost book={book} onSubmit={createPost} />
+        </div>
+    )
 }
 
 export default BookDetail

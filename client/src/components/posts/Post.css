@@ -1,0 +1,21 @@
+p1 {
+    /* font-family: "Times New Roman", Times, serif; */
+    padding-left: 20px;
+  }
+
+.post-button{
+    margin-top: 10px;
+    padding-left:10px;
+}
+
+form{
+    padding: 20px;
+}
+
+.post-submit-button{
+    padding-top: 10px;
+}
+
+.post-container{
+    padding-left: 2em;
+}

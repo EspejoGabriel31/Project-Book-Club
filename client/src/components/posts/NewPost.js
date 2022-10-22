@@ -1,6 +1,6 @@
-import { useState, useEffect } from "react"
-
-
+import { useState, useEffect, useContext } from "react"
+import {CurrentUser} from '../../contexts/CurrentUser'
+import "./Post.css"
 function NewPost({ book, onSubmit }) {
 
     const [commentors, setCommentors] = useState([])
@@ -20,10 +20,6 @@ function NewPost({ book, onSubmit }) {
         fetchData()
     }, [])
 
-    let commentorOptions = commentors.map(commentor => {
-        return <option key={commentor.user_id} value={commentor.user_id}>{commentor.first_name} {commentor.last_name}</option>
-    })
-
     function handleSubmit(e) {
         e.preventDefault()
         onSubmit(post)
@@ -31,6 +27,12 @@ function NewPost({ book, onSubmit }) {
             content: '',
             user_id: commentors[0]?.user_id
         })
+    }
+
+    const { currentUser } = useContext(CurrentUser)
+
+    if(!currentUser){
+        return <p>You must be logged in to post!</p>
     }
 
     return (
@@ -49,18 +51,8 @@ function NewPost({ book, onSubmit }) {
                 </div>
             </div>
             <div className="row">
-                <div className="form-group col-sm-4">
-                    <label htmlFor="state">Author</label>
-                    <select 
-                        className="form-control" 
-                        value={post.user_id} 
-                        onChange={e => setPost({ ...post, user_id: e.target.value })}
-                    >
-                        {commentorOptions}
-                    </select>
-                </div>
-                <div className="form-group col-sm-4">
-                    <input className="btn btn-primary" type="submit" value="Add Post" />
+                <div className="post-submit-button">
+                    <input type="submit" value="Post" />
                 </div>
             </div>
             
