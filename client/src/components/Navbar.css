@@ -125,3 +125,11 @@ img {
     align-content: center;
 }
 
+div.dropdown-menu.show {
+    font-size: 1em;
+    background-color: #c6c6c6;
+}
+
+a.dropdown-item {
+    text-align: center;
+}

@@ -11,10 +11,10 @@ export default function Footer() {
                         <a className='footer-link' href='/about'>About Us </a>
                     </Col>
                     <Col>
-                        <a className='footer-link' href='/term' >Term Of Services </a>
+                        <a className='footer-link' href='/contact'>Contact Us </a>
                     </Col>
                     <Col>
-                        <a className='footer-link' href='/contact'>Contact Us </a>
+                        <a className='footer-link' href='/term' >Term Of Services </a>
                     </Col>
                     <Col>
                         <a className='footer-link' href='/privacy'>Privacy </a>
