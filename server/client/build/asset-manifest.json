@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.7a166e85.css",
-    "main.js": "/static/js/main.801841dc.js",
+    "main.js": "/static/js/main.13959fa8.js",
     "static/media/Hero2.jpg": "/static/media/Hero2.6b251dbd152327d3175c.jpg",
     "static/media/SpyFamily2.jpeg": "/static/media/SpyFamily2.9eb3c2424ab4c28b62cf.jpeg",
     "static/media/ChainsawMan2.jpeg": "/static/media/ChainsawMan2.11f49d02271e0ab6d6e9.jpeg",
@@ -15,10 +15,10 @@
     "static/media/100YearsOfSolitude2.jpg": "/static/media/100YearsOfSolitude2.46ffacfe2a12ff576770.jpg",
     "index.html": "/index.html",
     "main.7a166e85.css.map": "/static/css/main.7a166e85.css.map",
-    "main.801841dc.js.map": "/static/js/main.801841dc.js.map"
+    "main.13959fa8.js.map": "/static/js/main.13959fa8.js.map"
   },
   "entrypoints": [
     "static/css/main.7a166e85.css",
-    "static/js/main.801841dc.js"
+    "static/js/main.13959fa8.js"
   ]
 }
