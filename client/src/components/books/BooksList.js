@@ -26,7 +26,7 @@ export default function BookList(data) {
                 {/* <img style={{ maxWidth: 200 }} src={new URL(book.picture, import.meta.url)} alt={book.book_name} /> */}
                 
                 <h3>
-                    <button onClick={() => navigate(`/books/${book.book_id}`)}>
+                    <button onClick={() => navigate(`/book/${book.book_id}`)}>
                         {book.book_name}
                     </button>
                 </h3>

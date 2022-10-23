@@ -34,8 +34,8 @@ function App() {
         <main>
         <Routes>
           <Route path="/" element={<Home/>}/>
-          <Route path="/books" element={<BooksList/>}/>
-          <Route path="/books/:book_id" element={<BookDetail/>}/>
+          <Route path="/book" element={<BooksList/>}/>
+          <Route path="/book/:book_id" element={<BookDetail/>}/>
           <Route path="/registration" element={<Registration/>}/>
           <Route path="/login" element={<Login/>}/>
           <Route path="/about" element={<About/>}/>
