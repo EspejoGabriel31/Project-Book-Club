@@ -9,7 +9,7 @@ function PostContainer({ post, onDelete }) {
     let deleteButton = null
     if (currentUser?.user_id === post.user_id){
         deleteButton = (
-        <div className="post-button">
+        <div className="post-button" onClick={onDelete}>
             <input type="submit" value="Delete"/>
         </div>
         )
