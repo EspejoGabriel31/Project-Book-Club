@@ -18,7 +18,7 @@ const Navigation = () => {
 
     let loginActions = (
         <>
-            <Nav.Link href=""> 
+            <Nav.Link href="">
                 <Login />
             </Nav.Link>
             <Nav.Link href="">
@@ -32,7 +32,7 @@ const Navigation = () => {
         loginActions = (
             <NavDropdown title={username} id="navDrop">
                 <NavDropdown.Item>
-                <button href="#" onClick={logout}>Logout</button>
+                    <button href="#" onClick={logout}>Logout</button>
                 </NavDropdown.Item>
             </NavDropdown>
 
@@ -46,38 +46,38 @@ const Navigation = () => {
     }
 
     return (
-        
+
         <div>
             <Navbar bg="black" expand="md" className="me-auto fixed-top"
                 style={{
                     justifyContent: "center",
                     backgroundColor: "#A0522D",
                     height: "150px",
-                    sticky: "top"
+                    width: '100%'
                 }}>
-                <Container fluid>
-                    <Navbar.Brand href="/" id='logo'>
-                        <img className="me-auto" alt="logo" src={Logo} />
-                        East of Reading
-                    </Navbar.Brand>
-                    <Navbar.Toggle aria-controls="navbarScroll"/>
-                    <Navbar.Collapse id="navbarScroll">
-                        <Nav className="flex-grow-1 justify-content-evenly" >
-                            <Nav.Link id='navLink' href="/books" >New Releases</Nav.Link>
-                            <Nav.Link id='navLink' href="/" >Reviews</Nav.Link>
-                            <NavDropdown title="Genres" id="navDrop" >
-                                <NavDropdown.Item href="/">Fantasy</NavDropdown.Item>
-                                <NavDropdown.Item href="/">Comedy</NavDropdown.Item>
-                                <NavDropdown.Item href="/">Fiction</NavDropdown.Item>
-                                <NavDropdown.Item href="/">Romance</NavDropdown.Item>
-                                <NavDropdown.Item href="/">Memoir</NavDropdown.Item>
-                                <NavDropdown.Item href="/">Literature</NavDropdown.Item>
-                            </NavDropdown>
-                            {loginActions}
-                            
-                        </Nav>
-                    </Navbar.Collapse>
-                </Container>
+
+                <Navbar.Brand className='fixed-left' href="/" id='logo'>
+                    <img className="d-inline-block align-center" alt="logo" src={Logo} />
+                    East of Reading
+                </Navbar.Brand>
+                <Navbar.Toggle aria-controls="navbarScroll" />
+                <Navbar.Collapse id="navbarScroll">
+                    <Nav className="flex-grow-1 justify-content-evenly" >
+                        <Nav.Link id='navLink' href="/books" >New Releases</Nav.Link>
+                        <Nav.Link id='navLink' href="/" >Reviews</Nav.Link>
+                        <NavDropdown title="Genres" id="navDrop" className='ms-auto'>
+                            <NavDropdown.Item href="/">Fantasy</NavDropdown.Item>
+                            <NavDropdown.Item href="/">Comedy</NavDropdown.Item>
+                            <NavDropdown.Item href="/">Fiction</NavDropdown.Item>
+                            <NavDropdown.Item href="/">Romance</NavDropdown.Item>
+                            <NavDropdown.Item href="/">Memoir</NavDropdown.Item>
+                            <NavDropdown.Item href="/">Literature</NavDropdown.Item>
+                        </NavDropdown>
+                        {loginActions}
+
+                    </Nav>
+                </Navbar.Collapse>
+
             </Navbar>
         </div>
     )

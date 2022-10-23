@@ -107,7 +107,6 @@ button {
 #logo {
     color: #00ffff;
     font-size: 2.2em;
-    width:fit-content;
 }
 
 img {
@@ -131,3 +130,4 @@ div.dropdown-menu.show {
 a.dropdown-item {
     text-align: center;
 }
+
