@@ -25,7 +25,7 @@ export default function Login() {
     async function handleSubmit(e) {
         e.preventDefault()
         // console.log(account)
-        const response = await fetch(`http://localhost:7000/authentication/`, {
+        const response = await fetch(`${process.env.REACT_APP_SERVER_URL}authentication/`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

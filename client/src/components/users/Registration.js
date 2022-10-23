@@ -19,7 +19,7 @@ export default function Registration() {
     async function handleSubmit(e) {
         e.preventDefault()
         console.log(user)
-        await fetch(`http://localhost:7000/users/`, {
+        await fetch(`${process.env.REACT_APP_SERVER_URL}users/`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

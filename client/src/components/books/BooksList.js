@@ -12,9 +12,9 @@ export default function BookList(data) {
 
     useEffect(() => {
         const getBooks = async () => {
-            const response = await fetch(`http://localhost:7000/books`)
+            const response = await fetch(`${process.env.REACT_APP_SERVER_URL}books`)
             const resBook = await response.json()
-            console.log(resBook)
+            // console.log(resBook)
             setBooks(resBook)
         }
         getBooks()
@@ -26,9 +26,9 @@ export default function BookList(data) {
                 {/* <img style={{ maxWidth: 200 }} src={new URL(book.picture, import.meta.url)} alt={book.book_name} /> */}
                 
                 <h3>
-                    <a href="#" onClick={() => navigate(`/books/${book.book_id}`)}>
+                    <button onClick={() => navigate(`/books/${book.book_id}`)}>
                         {book.book_name}
-                    </a>
+                    </button>
                 </h3>
                 <h4>{book.book_author}</h4>
                 <p>

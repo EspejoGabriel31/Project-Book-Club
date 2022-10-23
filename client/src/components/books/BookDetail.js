@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router"
+import { useParams } from "react-router"
 import PostContainer from "../posts/PostContainer";
 import NewPost from "../posts/NewPost";
 import './BookDetail.css'
@@ -14,7 +14,7 @@ function BookDetail() {
 
     useEffect(() => {
         const getBook = async () => {
-            const response = await fetch(`http://localhost:7000/books/${book_id}`)
+            const response = await fetch(`${process.env.REACT_APP_SERVER_URL}books/${book_id}`)
             const resData = await response.json()
             console.log(resData)
             setBook(resData)
@@ -41,7 +41,7 @@ function BookDetail() {
 
     async function deletePost(deletedPost) {
 
-        await fetch(`http://localhost:7000/books/${book.book_id}/posts/${deletedPost.post_id}`, {
+        await fetch(`${process.env.REACT_APP_SERVER_URL}books/${book.book_id}/posts/${deletedPost.post_id}`, {
             method: 'DELETE',
             headers: {
                 'Authorization': `Bearer ${localStorage.getItem('token')}`
@@ -57,7 +57,7 @@ function BookDetail() {
 
     async function createPost(postAttributes) {
         console.log('post attributes:\n', postAttributes)
-        const response = await fetch(`http://localhost:7000/books/${book.book_id}/posts`, {
+        const response = await fetch(`${process.env.REACT_APP_SERVER_URL}books/${book.book_id}/posts`, {
             method: 'POST',
             headers: {
                 'Authorization': `Bearer ${localStorage.getItem('token')}`,
