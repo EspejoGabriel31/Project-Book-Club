@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './Find.css';
 import Card from './Card';
-import {Link} from 'react-router-dom'
+// import {Link} from 'react-router-dom'
 
 
 // import Swiper, Slide, Navigation

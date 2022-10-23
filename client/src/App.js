@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+// import { useState, useEffect } from 'react';
 import {BrowserRouter, Route, Routes} from 'react-router-dom'
 import './App.css';
 import Home from './Home.js';
@@ -9,7 +9,7 @@ import Login from './components/users/Login.js';
 import BooksList from './components/books/BooksList.js'
 import CurrentUserProvider from './contexts/CurrentUser.js';
 import BookDetail from './components/books/BookDetail';
-import Find from './components/Find'
+// import Find from './components/Find'
 import Error404 from './Error404';
 //FOOTERS components
 import About from '../src/components/footers/about'
@@ -31,7 +31,6 @@ function App() {
     <CurrentUserProvider>
       <BrowserRouter>
         <Navigation />
-        
         <main>
         <Routes>
           <Route path="/" element={<Home/>}/>
