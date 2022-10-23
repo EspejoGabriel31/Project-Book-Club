@@ -1,12 +1,15 @@
 import React from 'react'
 import Card from 'react-bootstrap/Card'
+import Container from 'react-bootstrap/esm/Container'
 
 function Privacy() {
     return (
         <div>
-            <Card style={{ padding: '50px', background: 'radial-gradient(circle, rgba(255, 244, 180, 1) 0%, rgba(255, 224, 49, 1) 100%)' }}>
-                <h3> Updating Privacy</h3>
-            </Card>
+            <Container className="justify-content-center" style={{margin: '0 auto', display: 'flex'}}>
+                <Card className='text-center' style={{ width: '70%', margin: '50px', padding: '50px', background: 'radial-gradient(circle, #0059ff, #00ffff)' }}>
+                    <Card.Text style={{fontSize: '25px'}}>Updating Privacy</Card.Text>
+                </Card>
+            </Container>
         </div >
     )
 }
