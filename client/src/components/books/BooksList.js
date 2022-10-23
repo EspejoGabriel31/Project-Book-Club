@@ -1,11 +1,6 @@
 import {useEffect, useState} from 'react'
 import {useNavigate} from 'react-router'
 
-// const poster1 = new URL("../pictures/100YearsOfSolitude1.jpg", import.meta.url)
-// const poster2 = new URL("../pictures/ChainsawMan1.jpeg", import.meta.url)
-// const poster3 = new URL("../pictures/ThingsFallApart.jpg", import.meta.url)
-// const poster4 = new URL("../pictures/ThornBirds.jpg", import.meta.url)
-
 export default function BookList(data) {
     const navigate = useNavigate()
     const [books, setBooks] = useState([])
@@ -14,7 +9,6 @@ export default function BookList(data) {
         const getBooks = async () => {
             const response = await fetch(`${process.env.REACT_APP_SERVER_URL}books`)
             const resBook = await response.json()
-            // console.log(resBook)
             setBooks(resBook)
         }
         getBooks()
@@ -23,8 +17,6 @@ export default function BookList(data) {
     let booksListing = books.map((book) => {
         return (
             <div className="bookContainer" key={book.book_id}>
-                {/* <img style={{ maxWidth: 200 }} src={new URL(book.picture, import.meta.url)} alt={book.book_name} /> */}
-                
                 <h3>
                     <button onClick={() => navigate(`/book/${book.book_id}`)}>
                         {book.book_name}

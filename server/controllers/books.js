@@ -70,6 +70,7 @@ router.post('/:book_id/posts', async (req, res) =>{
 
 })
 
+//DELETE Route posts
 router.delete('/:book_id/posts/:post_id', async (req,res) =>{
     let book_id = Number(req.params.book_id)
     let post_id = Number(req.params.post_id)

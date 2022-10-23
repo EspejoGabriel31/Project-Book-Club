@@ -8,8 +8,6 @@ function BookDetail() {
 
     const { book_id } = useParams()
 
-    // const navigate = useNavigate()
-
     const [book, setBook] = useState(null)
 
     useEffect(() => {
