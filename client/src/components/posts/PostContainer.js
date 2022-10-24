@@ -22,6 +22,7 @@ function PostContainer({ post, onDelete }) {
             </h3>
             <p1>{post.content}</p1>
             {deleteButton}
+            <hr/>
         </div>
     )
 }

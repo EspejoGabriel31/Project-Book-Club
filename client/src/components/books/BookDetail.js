@@ -85,11 +85,8 @@ function BookDetail() {
 
     if (book.posts.length) {
         posts = book.posts.map(post => {
-            console.log(post)
             return (
-                <PostContainer key={post.post_id} post={post}
-                    onDelete={() => deletePost(post)}
-                />
+                <PostContainer key={post.post_id} post={post}onDelete={() => deletePost(post)}/>
             )
         })
     }
