@@ -44,7 +44,15 @@ REACT_APP_SERVER_URL=http://localhost:7000
 | POST   | /book/:book_id/posts          | Create a post on a book          |
 | DELETE | /book/:book_id/posts/:post_id | Delete a post on a book          |
 
-### App
+### App (http://localhost:3000)
+| Path           | Component               | Purpose                       |
+| -------------- | ----------------------- | ----------------------------- |
+| /              | `Home.js`               | Home page                     |
+| /registration  | `users/Registration.js` | Form for creating a new user  |
+| /login         | `users/Login.js`        | Form for logging in           |
+| /book          | `books/BooksList.js`    | List of books                 |
+| /book/:book_id | `books/BookDetail.js`   | Details about a specific book |
+
 
 ### Frontend
 
