@@ -1,6 +1,6 @@
 import {useEffect, useState} from 'react'
 import {useNavigate} from 'react-router'
-
+import './BookDetail.css'
 export default function BookList(data) {
     const navigate = useNavigate()
     const [books, setBooks] = useState([])
@@ -18,7 +18,7 @@ export default function BookList(data) {
         return (
             <div className="bookContainer" key={book.book_id}>
                 <h3>
-                    <button onClick={() => navigate(`/book/${book.book_id}`)}>
+                    <button className='title-button' onClick={() => navigate(`/book/${book.book_id}`)}>
                         {book.book_name}
                     </button>
                 </h3>
