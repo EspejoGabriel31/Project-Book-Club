@@ -58,11 +58,7 @@ ___
 
 ### Contributors
 
-* [Azuka Ehi](https://github.com/Knavish1) 
-**
-* [Gabriel Espejo](https://github.com/EspejoGabriel31)
-**
-* [Phuong Tong](https://github.com/YPhuong15)
-**
-* [Andrew Wokabi](https://github.com/DrewKW)
-**
+* [Azuka Ehi](https://github.com/Knavish1) - frontend - built `Hero`, `Find`, `Card` and `Navbar` components and styled components
+* [Gabriel Espejo](https://github.com/EspejoGabriel31) - backend - built `User`, `Book`, and `Authentication` controllers, implemented `CurrentUser` system
+* [Phuong Tong](https://github.com/YPhuong15) - frontend - built `Registration`, `Login`, `Footer`, `PostContainer`, `NewPost`, `BookList`, `BookDetail`, and `NavBar` components and styled components
+* [Andrew Wokabi](https://github.com/DrewKW) - backend - built `Books`, `Posts`, and `User` models and migrations, connected app to `Postgres SQL` database
