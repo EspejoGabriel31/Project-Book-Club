@@ -101,7 +101,7 @@ function BookDetail() {
                 <div className="col-6">
                     <img className="book-image" src={book.picture} alt={book.book_name} />
                 </div>
-                <div className="col-6">    
+                <div className="col-6" id="book-info">    
                     <div className="book-title">
                         <p>{book.book_name}</p>
                     </div>

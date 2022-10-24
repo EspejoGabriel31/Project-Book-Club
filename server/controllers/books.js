@@ -40,6 +40,8 @@ router.get('/:book_id', async(req, res) => {
     }
 })
 
+
+
 //CREATE Route Posts
 router.post('/:book_id/posts', async (req, res) =>{
     const book_id = Number(req.params.book_id)
