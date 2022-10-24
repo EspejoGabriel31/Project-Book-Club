@@ -57,8 +57,12 @@ Attributes (Andrew Wokabi) - Part of npx creation and base book_club de-coupled 
 ___
 
 ### Contributors
-* [Gabriel Espejo](https://github.com/EspejoGabriel31)
-* [Azuka Ehi](https://github.com/Knavish1)
-* [Andrew Wokabi](https://github.com/DrewKW)
-* [Phuong Tong](https://github.com/YPhuong15)
 
+* [Azuka Ehi](https://github.com/Knavish1) 
+**
+* [Gabriel Espejo](https://github.com/EspejoGabriel31)
+**
+* [Phuong Tong](https://github.com/YPhuong15)
+**
+* [Andrew Wokabi](https://github.com/DrewKW)
+**
