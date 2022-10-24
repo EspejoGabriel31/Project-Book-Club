@@ -40,7 +40,16 @@ router.get('/:book_id', async(req, res) => {
     }
 })
 
+//UPDATE Route Book Stub
+router.put('/:book_id', async (req, res) =>{
+    res.send('Book Update Route')
+})
 
+
+//DELETE Route Book Stub
+router.delete('/:book_id', async (req, res) =>{
+    res.send('Book Delete Route')
+})
 
 //CREATE Route Posts
 router.post('/:book_id/posts', async (req, res) =>{
