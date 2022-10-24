@@ -18,7 +18,7 @@ Users are able to create an account and log into the account. From there, they c
 ## Setup 
 > You will need to have a postgres database to connect to. Follow the instructions to set it up locally.
 * Fork and clone the repo into your local machine
-* Then navigate to the __server__ folder and run `npm i` to install the dependencies for the _backend_
+* Then navigate to the `server` folder and run `npm i` to install the dependencies for the _backend_
 * Still inside the __server__, create an `.env` file. This file will need to containing the following environmental variables
 ```
 PORT=7000
@@ -28,13 +28,23 @@ DB_DATABASE=book_club
 JWT_SECRET=qiweuxhoiuehqmie
 ```
 * Since the database run locally, you will also need to run `sequelize db:migrate`
-* Next, navigate to the __client__ folder and run `npm i` to install the dependencies for the _frontend_
-* Still inside the __client__folder, create an `.env` file and add it to the `.gitignore` file. This file will need to contain the  environmental variable
+* Next, navigate to the `client` folder and run `npm i` to install the dependencies for the _frontend_
+* Still inside the `client` folder, create an `.env` file and add it to the `.gitignore` file. This file will need to contain the  environmental variable
 ```
 REACT_APP_SERVER_URL=http://localhost:7000
 ```
-* Finally, run `npm start` inside the __client__ folder; and run `node server.js` inside the __server__ folder to get the app run.
+* Finally, run `npm start` inside the `client` folder; and run `node server.js` inside the `server` folder to get the app run.
 
+### API (http://localhost:7000)
+| Method | Path                          | Purpose                          |
+| ------ | ----------------------------- | -------------------------------  |
+| GET    | /                             | Home page                        |
+| GET    | /book                         | Books listing page               |
+| GET    | /book/:book_id                | Details about an individual book |
+| POST   | /book/:book_id/posts          | Create a post on a book          |
+| DELETE | /book/:book_id/posts/:post_id | Delete a post on a book          |
+
+### App
 
 ### Frontend
 
