@@ -2,6 +2,8 @@
 
 Deployment Link: http://milestoneproject3-env.eba-psnnyws3.us-east-1.elasticbeanstalk.com/
 
+#Project Description
+
 East of Reading is a rating book site that welcomes anyone who loves to read and share what they love about books. 
 The website is a Book Club with various books from all across the globe that Users visiting the site, can find then join in the discussions of each of those different genres of books.
 
@@ -59,6 +61,6 @@ ___
 ### Contributors
 
 * [Azuka Ehi](https://github.com/Knavish1) - frontend - built `Hero`, `Find`, `Card` and `Navbar` components and styled components
-* [Gabriel Espejo](https://github.com/EspejoGabriel31) - backend - built `User`, `Book`, and `Authentication` controllers, implemented `CurrentUser` system
+* [Gabriel Espejo](https://github.com/EspejoGabriel31) - backend - built `User`, `Book`, and `Authentication` controllers, implemented `CurrentUser` system and App architecture
 * [Phuong Tong](https://github.com/YPhuong15) - frontend - built `Registration`, `Login`, `Footer`, `PostContainer`, `NewPost`, `BookList`, `BookDetail`, and `NavBar` components and styled components
 * [Andrew Wokabi](https://github.com/DrewKW) - backend - built `Books`, `Posts`, and `User` models and migrations, connected app to `Postgres SQL` database
