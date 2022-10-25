@@ -85,9 +85,11 @@ function BookDetail() {
 
     if (book.posts.length) {
         posts = book.posts.map(post => {
-            return (
-                <PostContainer key={post.post_id} post={post}onDelete={() => deletePost(post)}/>
-            )
+            if (post.user) {
+                return (
+                    <PostContainer key={post.post_id} post={post} onDelete={() => deletePost(post)} />
+                )
+            }
         })
     }
 
@@ -98,7 +100,7 @@ function BookDetail() {
                 <div className="col-6">
                     <img className="book-image" src={book.picture} alt={book.book_name} />
                 </div>
-                <div className="col-6" id="book-info">    
+                <div className="col-6" id="book-info">
                     <div className="book-title">
                         <p>{book.book_name}</p>
                     </div>

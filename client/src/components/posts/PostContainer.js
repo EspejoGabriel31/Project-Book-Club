@@ -1,17 +1,17 @@
 import "./Post.css"
 import { useContext } from "react"
-import {CurrentUser} from "../../contexts/CurrentUser"
+import { CurrentUser } from "../../contexts/CurrentUser"
 
 
 function PostContainer({ post, onDelete }) {
-    const {currentUser} =useContext(CurrentUser)
+    const { currentUser } = useContext(CurrentUser)
 
     let deleteButton = null
-    if (currentUser?.user_id === post.user_id){
+    if (currentUser?.user_id === post.user_id) {
         deleteButton = (
-        <div className="post-button" onClick={onDelete}>
-            <input type="submit" value="Delete"/>
-        </div>
+            <div className="post-button" onClick={onDelete}>
+                <input type="submit" value="Delete" />
+            </div>
         )
     }
 
@@ -22,7 +22,7 @@ function PostContainer({ post, onDelete }) {
             </h3>
             <p1>{post.content}</p1>
             {deleteButton}
-            <hr/>
+            <hr />
         </div>
     )
 }

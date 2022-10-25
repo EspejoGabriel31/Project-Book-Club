@@ -1,5 +1,6 @@
-import {useEffect, useState} from 'react'
-import {useNavigate} from 'react-router'
+import { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router'
+import NewBookForm from './NewBookForm'
 import './BookDetail.css'
 export default function BookList(data) {
     const navigate = useNavigate()
@@ -23,20 +24,19 @@ export default function BookList(data) {
                     </button>
                 </h3>
                 <h4>{book.book_author}</h4>
-                <p>
-					{book.genre}
-				</p>
-                
-                
-                <hr/>
+                <p>{book.genre}</p>
+                <hr />
             </div>
         )
     })
     return (
         <div>
-            <h1> 
+            <h1>
                 Recently Added Books
             </h1>
+            <div className='new-book-button'>
+                <NewBookForm />
+            </div>
             <div>
                 {booksListing}
             </div>

@@ -1,7 +1,7 @@
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import { useState } from 'react'
 import Modal from 'react-bootstrap/Modal';
+import { useState } from 'react'
 
 export default function Registration() {
     const [show, setShow] = useState(false);
