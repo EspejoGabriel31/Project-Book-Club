@@ -42,7 +42,23 @@ router.get('/:book_id', async(req, res) => {
 
 //UPDATE Route Book Stub
 router.put('/:book_id', async (req, res) =>{
-    res.send('Book Update Route')
+    let book_id = Number(req.params.book_id)
+    if (isNaN(book_id)){
+        res.status(404).json({message: `Invalid id "${book_id}`})
+    }
+    else{
+        const book = await Book.findOne({
+            where: {book_id: book_id}
+        })
+        if(!book){
+            res.status(404).json({message: `Invalid id "${book_id}`})
+        }
+        else{
+            Object.assign(book, req.body)
+            await book.save()
+            res.json(book)
+        }
+    }
 })
 
 

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router"
 import PostContainer from "../posts/PostContainer";
 import NewPost from "../posts/NewPost";
+import EditBookForm from "./EditBookForm";
 import './BookDetail.css'
 
 function BookDetail() {
@@ -115,6 +116,9 @@ function BookDetail() {
                     <div className="book-synopsis">
                         <strong><p>Synopsis</p></strong>
                         <p>To be added...</p>
+                    </div>
+                    <div className="book-buttons">
+                        <EditBookForm/>
                     </div>
                 </div>
             </div>
