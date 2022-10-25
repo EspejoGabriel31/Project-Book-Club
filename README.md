@@ -26,8 +26,9 @@ DB_USERNAME='YOUR_USER_NAME'
 DB_PASSWORD='YOUR_PASSWORD'
 DB_DATABASE=book_club
 JWT_SECRET=qiweuxhoiuehqmie
+ADMIN_PASSWORD='YOUR_ADMIN_PASSWORD'
 ```
-* Since the database run locally, you will also need to run `sequelize db:migrate`
+* Since the database run locally, you will also need to run `sequelize db:migrate`as well as `sequelize db:seed:all`
 * Next, navigate to the `client` folder and run `npm i` to install the dependencies for the _frontend_
 * Still inside the `client` folder, create an `.env` file and add it to the `.gitignore` file. This file will need to contain the  environmental variable
 ```
@@ -36,13 +37,15 @@ REACT_APP_SERVER_URL=http://localhost:7000
 * Finally, run `npm start` inside the `client` folder; and run `node server.js` inside the `server` folder to get the app run.
 
 ### API (http://localhost:7000)
-| Method | Path                          | Purpose                          |
-| ------ | ----------------------------- | -------------------------------  |
-| GET    | /                             | Home page                        |
-| GET    | /book                         | Books listing page               |
-| GET    | /book/:book_id                | Details about an individual book |
-| POST   | /book/:book_id/posts          | Create a post on a book          |
-| DELETE | /book/:book_id/posts/:post_id | Delete a post on a book          |
+| Method | Path                          | Purpose                                 |
+| ------ | ----------------------------- | --------------------------------------- |
+| GET    | /                             | Home page                               |
+| GET    | /book                         | Books listing page                      |
+| GET    | /book/:book_id                | Details about an individual book        |
+| PUT    | /book/:book_id                | Update details about an individual book |
+| DELETE | /book/:book_id                | Delete details about an individual book |
+| POST   | /book/:book_id/posts          | Create a post on a book                 |
+| DELETE | /book/:book_id/posts/:post_id | Delete a post on a book                 |
 
 ### App (http://localhost:3000)
 | Path           | Component               | Purpose                       |
@@ -70,10 +73,8 @@ Attributes (Andrew Wokabi) - Part of npx creation and base book_club de-coupled 
 * __Genres__ dropdown in navigation bar with each element link to each genre
 * `CRUD` operation (Updating) for post need to be added
 * `Replying to post` needed to be implemented
-* `CRUD` operations (Deleting, Updating) for book need to be added
-* User authentication implementation for Book `CRUD` operations
 * Functionality for Users to create Book entries
-* Moderator/Admin role/previliges 
+* User profile pages
 ___
 
 ### Contributors
