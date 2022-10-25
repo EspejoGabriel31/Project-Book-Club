@@ -93,7 +93,6 @@ export default function EditBookForm() {
                     </Form>
                 </Modal.Body>
                 <Modal.Footer>
-                    <Button style={{ color: 'white' }} onClick={handleClose}>Close</Button>
                     <Button
                         style={{ color: 'white' }}
                         type="submit"
@@ -101,6 +100,8 @@ export default function EditBookForm() {
                         onClick={handleSubmit}>
                         Save
                     </Button>
+                    <Button style={{ color: 'white' }} onClick={handleClose}>Close</Button>
+
                 </Modal.Footer>
             </Modal>
         </>

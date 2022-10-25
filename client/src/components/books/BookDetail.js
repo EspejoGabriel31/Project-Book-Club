@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router"
+import { useParams, useNavigate } from "react-router"
 import PostContainer from "../posts/PostContainer";
 import NewPost from "../posts/NewPost";
 import EditBookForm from "./EditBookForm";
@@ -8,6 +8,8 @@ import './BookDetail.css'
 function BookDetail() {
 
     const { book_id } = useParams()
+
+    const navigate = useNavigate()
 
     const [book, setBook] = useState(null)
 
@@ -25,18 +27,12 @@ function BookDetail() {
         return <h1>Loading</h1>
     }
 
-    // function editBook() {
-
-    // 	navigate(`/books/${book.book_id}/edit`)
-
-    // }
-
-    // async function deleteBook() {
-    // 	await fetch(`http://localhost:7000/books/${book.book_id}`, {
-    // 		method: 'DELETE'
-    // 	})
-    // 	navigate('/books')
-    // }
+    async function deleteBook() {
+    	await fetch(`${process.env.REACT_APP_SERVER_URL}books/${book.book_id}`, {
+    		method: 'DELETE'
+    	})
+    	navigate('/book')
+    }
 
     async function deletePost(deletedPost) {
 
@@ -119,6 +115,7 @@ function BookDetail() {
                     </div>
                     <div className="book-buttons">
                         <EditBookForm/>
+                        <button className="delete-book-button" onClick={deleteBook}>Delete Book</button>
                     </div>
                 </div>
             </div>
