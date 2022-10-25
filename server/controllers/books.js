@@ -40,7 +40,7 @@ router.get('/:book_id', async(req, res) => {
     }
 })
 
-//UPDATE Route Book Stub
+//UPDATE Route Book
 router.put('/:book_id', async (req, res) =>{
     let book_id = Number(req.params.book_id)
     if (isNaN(book_id)){
