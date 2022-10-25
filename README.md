@@ -43,7 +43,7 @@ REACT_APP_SERVER_URL=http://localhost:7000
 | GET    | /book                         | Books listing page                      |
 | GET    | /book/:book_id                | Details about an individual book        |
 | PUT    | /book/:book_id                | Update details about an individual book |
-| DELETE | /book/:book_id                | Delete details about an individual book |
+| DELETE | /book/:book_id                | Delete an individual book |
 | POST   | /book/:book_id/posts          | Create a post on a book                 |
 | DELETE | /book/:book_id/posts/:post_id | Delete a post on a book                 |
 
