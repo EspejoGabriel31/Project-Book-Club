@@ -31,6 +31,13 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING,
         allowNull: false
     },
+    clearance:{
+        type: DataTypes.ENUM,
+        values:[
+            'reader',
+            'admin',
+        ]
+    },
     password_digest: {
         type: DataTypes.STRING,
         allowNull: false
