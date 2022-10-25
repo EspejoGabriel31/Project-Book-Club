@@ -3,22 +3,19 @@ import './Hero.css'
 
 
 const Hero = () => {
-  return (
-    <div>
-    <form>
-        <div className="banner">
-            <div className="hero-text">
-                <label>Look up:  </label>
-                <input type="text" className='hero-search-bar' placeholder='  Novels, Manga, etc' />
-                <p>   </p> 
-                <button>Search</button>
-            </div>    
+    return (
+        <div>
+            <form>
+                <div className="banner">
+                    <div className="hero-text">
+                        <label>Look up:  </label>
+                        <input type="text" className='hero-search-bar' placeholder='  Novels, Manga, etc' />
+                        <button>Search</button>
+                    </div>
+                </div>
+            </form>
         </div>
-
-    </form>
-    
-    </div>
-  )
+    )
 }
 
 export default Hero
