@@ -33,7 +33,7 @@ export default function EditBookForm() {
         await fetch(`${process.env.REACT_APP_SERVER_URL}books/${book.book_id}`, {
             method: `PUT`,
             headers: {
-                // 'Authorization': `Bearer ${localSt}`
+                'Authorization': `Bearer ${localStorage.getItem('token')}`,
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(book)

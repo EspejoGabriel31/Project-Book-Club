@@ -5,7 +5,7 @@ function NewPost({ onSubmit }) {
 
     const [post, setPost] = useState({
         content: '',
-        user_id: ''
+        // user_id: ''
     })
 
     function handleSubmit(e) {

@@ -22,6 +22,7 @@ export default function NewBookForm() {
         await fetch(`${process.env.REACT_APP_SERVER_URL}books/`, {
             method: 'POST',
             headers: {
+                'Authorization': `Bearer ${localStorage.getItem('token')}`,
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(book)

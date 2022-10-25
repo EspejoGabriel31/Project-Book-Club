@@ -1,10 +1,12 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useContext } from 'react'
 import { useNavigate } from 'react-router'
+import { CurrentUser } from "../../contexts/CurrentUser";
 import NewBookForm from './NewBookForm'
 import './BookDetail.css'
 export default function BookList(data) {
     const navigate = useNavigate()
     const [books, setBooks] = useState([])
+    const { currentUser } = useContext(CurrentUser)
 
     useEffect(() => {
         const getBooks = async () => {
@@ -29,14 +31,23 @@ export default function BookList(data) {
             </div>
         )
     })
+
+    let addBookButton = null
+    console.log(currentUser?.clearance)
+    if (currentUser?.clearance === 'admin'){
+        addBookButton = (
+            <div className='new-book-button'>
+                <NewBookForm />
+            </div>
+        )
+    }
+
     return (
         <div>
             <h1>
                 Recently Added Books
             </h1>
-            <div className='new-book-button'>
-                <NewBookForm />
-            </div>
+            {addBookButton}
             <div>
                 {booksListing}
             </div>

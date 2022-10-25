@@ -1,15 +1,18 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { useParams, useNavigate } from "react-router"
 import PostContainer from "../posts/PostContainer";
 import NewPost from "../posts/NewPost";
 import EditBookForm from "./EditBookForm";
 import './BookDetail.css'
+import { CurrentUser } from "../../contexts/CurrentUser";
 
 function BookDetail() {
 
     const { book_id } = useParams()
 
     const navigate = useNavigate()
+
+    const { currentUser } = useContext(CurrentUser)
 
     const [book, setBook] = useState(null)
 
@@ -28,10 +31,13 @@ function BookDetail() {
     }
 
     async function deleteBook() {
-    	await fetch(`${process.env.REACT_APP_SERVER_URL}books/${book.book_id}`, {
-    		method: 'DELETE'
-    	})
-    	navigate('/book')
+        await fetch(`${process.env.REACT_APP_SERVER_URL}books/${book.book_id}`, {
+            method: 'DELETE',
+            headers: {
+                'Authorization': `Bearer ${localStorage.getItem('token')}`
+            }
+        })
+        navigate('/book')
     }
 
     async function deletePost(deletedPost) {
@@ -62,7 +68,7 @@ function BookDetail() {
         })
 
         const post = await response.json()
-
+        console.log("post: ", post)
         setBook({
             ...book,
             posts: [
@@ -90,6 +96,17 @@ function BookDetail() {
         })
     }
 
+    let bookActionButtons = null
+
+    if (currentUser?.clearance === 'admin') {
+        bookActionButtons = (
+            <div className="book-buttons">
+                <EditBookForm />
+                <button className="delete-book-button" onClick={deleteBook}>Delete Book</button>
+            </div>
+        )
+    }
+
     return (
         <div className="book-detail-page">
             <hr></hr>
@@ -113,10 +130,7 @@ function BookDetail() {
                         <strong><p>Synopsis</p></strong>
                         <p>To be added...</p>
                     </div>
-                    <div className="book-buttons">
-                        <EditBookForm/>
-                        <button className="delete-book-button" onClick={deleteBook}>Delete Book</button>
-                    </div>
+                    {bookActionButtons}
                 </div>
             </div>
             <hr />
