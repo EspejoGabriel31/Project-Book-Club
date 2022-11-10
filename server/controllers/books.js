@@ -7,10 +7,13 @@ const { Book, Post, User } = db
 
 //CREATE Route Book
 router.post('/', async (req, res) => {
-    if (req.currentUser?.clearance !== 'admin') {
-        return res.status(403).json({ message: 'You are not allowed to do this' })
-    }
-    const book = await Book.create(req.body)
+    // if (req.currentUser?.clearance !== 'admin') {
+    //     return res.status(403).json({ message: 'You are not allowed to do this' })
+    // }
+    const book = await Book.create({
+        ...req.body,
+        user_id: req.currentUser.user_id
+    })
     res.json(book)
 })
 

@@ -34,7 +34,11 @@ export default function BookList(data) {
 
     let addBookButton = null
     console.log(currentUser?.clearance)
-    if (currentUser?.clearance === 'admin'){
+    if (
+        currentUser
+        // ?.clearance === 'admin'
+
+        ){
         addBookButton = (
             <div className='new-book-button'>
                 <NewBookForm />
