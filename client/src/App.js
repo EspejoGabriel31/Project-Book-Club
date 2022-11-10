@@ -2,9 +2,7 @@ import {BrowserRouter, Route, Routes} from 'react-router-dom'
 import './App.css';
 import Home from './Home.js';
 import Navigation from './components/Navbar.js';
-import Footer from './components/Footer.js'
-import Registration from './components/users/Registration.js';
-import Login from './components/users/Login.js';
+import Footer from './components/footers/Footer.js'
 import BooksList from './components/books/BooksList.js'
 import CurrentUserProvider from './contexts/CurrentUser.js';
 import BookDetail from './components/books/BookDetail';
@@ -34,8 +32,6 @@ function App() {
           <Route path="/" element={<Home/>}/>
           <Route path="/book" element={<BooksList/>}/>
           <Route path="/book/:book_id" element={<BookDetail/>}/>
-          <Route path="/registration" element={<Registration/>}/>
-          <Route path="/login" element={<Login/>}/>
           <Route path="/about" element={<About/>}/>
           <Route path="/contact" element={<Contact/>}/>
           <Route path="/term" element={<Term/>}/>
