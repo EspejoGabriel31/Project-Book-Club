@@ -89,6 +89,7 @@ router.delete('/:book_id', async (req, res) => {
         }
         else {
             await book.destroy()
+            Post.destroy({where: {book_id: book_id}})
             res.json(book)
         }
     }
