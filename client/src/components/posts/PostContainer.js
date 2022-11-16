@@ -7,7 +7,7 @@ function PostContainer({ post, onDelete }) {
     const { currentUser } = useContext(CurrentUser)
 
     let deleteButton = null
-    if (currentUser?.user_id === post.user_id) {
+    if (currentUser?.user_id === post.user_id || currentUser?.clearance === 'admin') {
         deleteButton = (
             <div className="post-button" onClick={onDelete}>
                 <input type="submit" value="Delete" />

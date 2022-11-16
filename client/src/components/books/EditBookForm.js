@@ -29,7 +29,6 @@ export default function EditBookForm() {
 
     async function handleSubmit(e) {
         e.preventDefault()
-
         await fetch(`${process.env.REACT_APP_SERVER_URL}books/${book.book_id}`, {
             method: `PUT`,
             headers: {

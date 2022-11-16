@@ -34,8 +34,10 @@ function BookDetail() {
         await fetch(`${process.env.REACT_APP_SERVER_URL}books/${book.book_id}`, {
             method: 'DELETE',
             headers: {
-                'Authorization': `Bearer ${localStorage.getItem('token')}`
-            }
+                'Authorization': `Bearer ${localStorage.getItem('token')}`,
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(book)
         })
         navigate('/book')
     }
@@ -98,7 +100,7 @@ function BookDetail() {
 
     let bookActionButtons = null
 
-    if (currentUser?.clearance === 'admin') {
+    if (currentUser?.clearance === 'admin' || currentUser?.user_id == book.user_id) {
         bookActionButtons = (
             <div className="book-buttons">
                 <EditBookForm />

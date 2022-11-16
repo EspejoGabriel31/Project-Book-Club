@@ -49,7 +49,7 @@ router.get('/:book_id', async (req, res) => {
 
 //UPDATE Route Book
 router.put('/:book_id', async (req, res) => {
-    if (req.currentUser?.clearance !== 'admin') {
+    if (req.body.user_id != req.currentUser?.user_id && req.currentUser?.clearance !== 'admin') {
         return res.status(403).json({ message: 'You are not allowed to do this' })
     }
     let book_id = Number(req.params.book_id)
@@ -73,8 +73,7 @@ router.put('/:book_id', async (req, res) => {
 
 //DELETE Route Book Stub
 router.delete('/:book_id', async (req, res) => {
-    console.log("DELETE: ", req.currentUser)
-    if (req.currentUser?.clearance !== 'admin') {
+    if (req.body.user_id != req.currentUser?.user_id && req.currentUser?.clearance !== 'admin') {
         return res.status(403).json({ message: 'You are not allowed to do this' })
     }
     let book_id = Number(req.params.book_id)
