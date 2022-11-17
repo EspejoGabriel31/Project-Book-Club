@@ -1,10 +1,9 @@
 import { useEffect, useState, useContext } from 'react'
-import { useNavigate } from 'react-router'
 import { CurrentUser } from "../../contexts/CurrentUser";
 import NewBookForm from './NewBookForm'
+import BookListing from './BookListing';
 import './BookDetail.css'
 export default function BookList(data) {
-    const navigate = useNavigate()
     const [books, setBooks] = useState([])
     const { currentUser } = useContext(CurrentUser)
 
@@ -17,28 +16,22 @@ export default function BookList(data) {
         getBooks()
     }, [])
 
-    let booksListing = books.map((book) => {
-        return (
-            <div className="bookContainer" key={book.book_id}>
-                <h3>
-                    <button className='title-button' onClick={() => navigate(`/book/${book.book_id}`)}>
-                        {book.book_name}
-                    </button>
-                </h3>
-                <h4>{book.book_author}</h4>
-                <p>{book.genre}</p>
-                <hr />
-            </div>
-        )
-    })
+    let booksListing = (
+        <h3 className="inactive">
+            No books found
+        </h3>
+    )
+
+    if (books.length) {
+        booksListing = books.map(book => {
+            return (
+                <BookListing key={book.book_id} book={book}/>
+            )
+        })
+    }
 
     let addBookButton = null
-    console.log(currentUser?.clearance)
-    if (
-        currentUser
-        // ?.clearance === 'admin'
-
-        ){
+    if (currentUser) {
         addBookButton = (
             <div className='new-book-button'>
                 <NewBookForm />

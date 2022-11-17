@@ -20,7 +20,7 @@ function BookDetail() {
         const getBook = async () => {
             const response = await fetch(`${process.env.REACT_APP_SERVER_URL}books/${book_id}`)
             const resData = await response.json()
-            console.log(resData)
+            // console.log(resData)
             setBook(resData)
         }
         getBook()
@@ -78,9 +78,7 @@ function BookDetail() {
                 post
             ]
         })
-
     }
-
 
     let posts = (
         <h3 className="inactive">
@@ -90,11 +88,9 @@ function BookDetail() {
 
     if (book.posts.length) {
         posts = book.posts.map(post => {
-            if (post.user) {
-                return (
-                    <PostContainer key={post.post_id} post={post} onDelete={() => deletePost(post)} />
-                )
-            }
+            return (
+                <PostContainer key={post.post_id} post={post} onDelete={() => deletePost(post)} />
+            )
         })
     }
 

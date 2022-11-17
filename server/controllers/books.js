@@ -25,7 +25,6 @@ router.get('/', async (req, res) => {
 
 //READ ONE Route Book
 router.get('/:book_id', async (req, res) => {
-    console.log("currentUser GET: ", req.currentUser)
     let book_id = Number(req.params.book_id)
     if (isNaN(book_id)) {
         res.status(404).json({ message: `Invalid id "${book_id}"` })
